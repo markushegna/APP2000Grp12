@@ -1,10 +1,9 @@
 @charset "utf-8";
-//Bulma variables
-// Set your brand colors
-@import "node_modules/bulma/sass";
 
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;
 $brown: #757763;
@@ -32,11 +31,11 @@ $link: $pink;
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$localpalette-primary: mat-palette(#A80E0E);
-$localpalette-accent: mat-palette(#FFAA00, A200, A100, A400);
+$localpalette-primary: mat-palette($mat-indigo);
+$localpalette-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$localpalette-warn: mat-palette(#454545);
+$localpalette-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -53,7 +52,6 @@ $localpalette-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($localpalette-theme);
 
-/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
