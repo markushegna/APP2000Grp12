@@ -7,6 +7,9 @@ import {MaterialModule} from "./module/material/material.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+import { InfocardsComponent } from './components/infocards/infocards.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -14,13 +17,16 @@ import { HomeComponent } from './pages/home/home.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    InfocardsComponent
   ],
   imports: [
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
 
   ],
   providers: [],
