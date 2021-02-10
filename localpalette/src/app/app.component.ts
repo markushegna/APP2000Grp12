@@ -10,10 +10,6 @@ export class AppComponent {
   title = 'localpalette';
 
 
-
-  greet() {
-    alert("Hello World!");
-  }
 }
 
 
