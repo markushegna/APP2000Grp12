@@ -1,0 +1,19 @@
+diff a/localpalette/src/app/app.module.ts b/localpalette/src/app/app.module.ts	(rejected hunks)
+@@ -3,14 +3,15 @@
+ 
+ import { AppRoutingModule } from './app-routing.module';
+ import { AppComponent } from './app.component';
+-import {MaterialModule} from "./module/material/material.module";
++import { MaterialModule } from "./module/material/material.module";
+ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+ 
+ 
++
+ @NgModule({
+   declarations: [
+-    AppComponent
++    AppComponent,
+   ],
+   imports: [
+     MaterialModule,
