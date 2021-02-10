@@ -1,0 +1,20 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+
+    .restaurants {
+      max-width: 400px;
+      margin-right: 1%;
+
+
+    }
+  }
+}
+
+
+

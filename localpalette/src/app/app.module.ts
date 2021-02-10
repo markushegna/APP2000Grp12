@@ -9,17 +9,22 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { InfocardsComponent } from './components/infocards/infocards.component';
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    InfocardsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     MatButtonModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    MatCardModule,
+    MatIconModule
+
 
   ],
   providers: [],
