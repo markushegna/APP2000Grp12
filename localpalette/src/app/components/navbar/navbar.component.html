@@ -1,9 +1,53 @@
-<header>
-  <nav>
-    <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="test">test</a></li>
-      <li><a routerLink="inforcards">infocards</a></li>
-    </ul>
-  </nav>
-</header>
+<div style="height: 100vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Responsive fulll</span>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <a href="#" mat-button>Home</a>
+        <a href="#" mat-button>Menu</a>
+        <a href="#" mat-button>Gallery</a>
+        <a href="#" mat-button>Testimonals</a>
+        <a href="#" mat-button>Contact us</a>
+        <a href="#" mat-button>
+          <mat-icon>search</mat-icon>
+        </a>
+        <a href="#" mat-button>
+          <mat-icon>shopping_basket</mat-icon>
+        </a>
+        <a href="#" mat-button>
+          <mat-icon>person</mat-icon>
+        </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a href="#" mat-list-item>Home</a>
+        <a href="#" mat-list-item>Menu</a>
+        <a href="#" mat-list-item>Gallery</a>
+        <a href="#" mat-list-item>Testimonals</a>
+        <a href="#" mat-list-item>Contact us </a>
+        <a href="#" mat-button>
+          <mat-icon>search</mat-icon>
+        </a>
+        <a href="#" mat-button>
+          <mat-icon>shopping_basket</mat-icon>
+        </a>
+        <a href="#" mat-button>
+          <mat-icon>person</mat-icon>
+        </a>
+
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>close</mat-icon> Close
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+  </mat-sidenav-container>
+</div>

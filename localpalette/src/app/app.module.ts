@@ -1,14 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {MaterialModule} from "./module/material/material.module";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from "./module/material/material.module";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { InfocardsComponent } from './components/infocards/infocards.component';
-import { AngularFireModule } from "@angular/fire";
-import {environment} from "../environments/environment";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
 
 
 
@@ -23,9 +29,20 @@ import {environment} from "../environments/environment";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    FlexLayoutModule,
     MaterialModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatCardModule,
+    MatIconModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
