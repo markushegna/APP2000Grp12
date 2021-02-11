@@ -5,3 +5,30 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30rem;
+    margin-left: 20rem;
+}
+
+
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), transparent),
+      url("./Untitled-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero h3 {
+    padding: 5rem;
+  }
+  
