@@ -1,15 +1,15 @@
 <div style="height: 100vh;">
-  <mat-toolbar color="primary">
+  <mat-toolbar color="">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Responsive full</span>
+      <span>Local palette</span>
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
-        <a routerLink="/" mat-button>Home</a>
+        <a href="#" mat-button>Home</a>
         <a href="#" mat-button>Menu</a>
-        <a routerLink="/infocards" mat-button>Gallery</a>
+        <a href="#" mat-button>Gallery</a>
         <a href="#" mat-button>Testimonals</a>
         <a href="#" mat-button>Contact us</a>
         <a href="#" mat-button>
@@ -48,6 +48,7 @@
         </a>
       </mat-nav-list>
     </mat-sidenav>
-
+    <section class="hero">
+    </section>
   </mat-sidenav-container>
 </div>
