@@ -1,4 +1,4 @@
-<div style="height: 100vh;">
+<div>
   <mat-toolbar color="">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -8,7 +8,7 @@
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
         <a routerLink="/" mat-button>Home</a>
-        <a href="#" mat-button>Menu</a>
+        <a href="/kategorier" mat-button>Kategori</a>
         <a routerLink="/gallery" mat-button>Gallery</a>
         <a href="#" mat-button>Testimonals</a>
         <a href="#" mat-button>Contact us</a>
@@ -48,7 +48,7 @@
         </a>
       </mat-nav-list>
     </mat-sidenav>
-    <section class="hero">
-    </section>
+    <!--<section class="hero">
+    </section>-->
   </mat-sidenav-container>
 </div>

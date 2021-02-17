@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { InfocardsComponent } from './components/infocards/infocards.component';
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
+import { KategoriComponent } from './pages/kategori/kategori.component';
 
 
 
@@ -24,7 +25,8 @@ import { MatIconModule } from "@angular/material/icon";
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    InfocardsComponent
+    InfocardsComponent,
+    KategoriComponent
   ],
   imports: [
     BrowserModule,
