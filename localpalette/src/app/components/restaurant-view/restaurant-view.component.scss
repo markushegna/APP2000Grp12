@@ -1,0 +1,25 @@
+.content {
+  margin-top: 10%;
+  margin-left: 1%;
+
+  .content-header {
+
+    .headerInfo {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+
+      .save {
+        display: flex;
+        flex-direction: row;
+        margin-left: 40%;
+        padding-right: 2%;
+
+        h3 {
+          padding-left: 15%;
+        }
+      }
+    }
+  }
+}
