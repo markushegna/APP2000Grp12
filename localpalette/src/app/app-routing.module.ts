@@ -8,7 +8,8 @@ import {RatingModule} from "primeng/rating";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import{NavbarComponent}  from "./components/navbar/navbar.component"
-
+import { LoginComponent } from './pages/login/login.component';
+import {UserAuthComponent} from "./components/user-auth/user-auth.component"
 const routes: Routes = [
   {
     path:'home',
@@ -26,15 +27,24 @@ const routes: Routes = [
   {
     path:"",
     component : NavbarComponent
+  },
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:"",
+    component:UserAuthComponent
   }
+
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
+  //imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
 
-  
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent]
+export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent,LoginComponent,UserAuthComponent]
