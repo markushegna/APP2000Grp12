@@ -5,6 +5,11 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./module/material/material.module";
+
+import { KategoriComponent } from './pages/kategori/kategori.component';
+import {FormsModule} from "@angular/forms";
+
+
 import { AngularFireModule } from '@angular/fire';
 import {environment} from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -13,8 +18,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    InfocardsComponent,
+    KategoriComponent,
     requestComponent,
   
+
   ],
   imports: [
     BrowserModule,
@@ -22,6 +32,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule
     AngularFireModule.initializeApp(environment),
     AngularFirestoreModule
 

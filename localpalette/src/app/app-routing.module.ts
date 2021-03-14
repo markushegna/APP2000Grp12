@@ -7,7 +7,11 @@ import {FormsModule} from "@angular/forms";
 import {RatingModule} from "primeng/rating";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
+
+import {KategoriComponent} from "./pages/kategori/kategori.component";
+
 import{NavbarComponent}  from "./components/navbar/navbar.component"
+
 
 const routes: Routes = [
   {
@@ -15,17 +19,23 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'infocards',
+    path:'gallery',
     component: InfocardsComponent
   },
   {
     path:'restaurantView',
     component: RestaurantViewComponent
   },
+
+  {
+    path:'kategori',
+    component: KategoriComponent
+
   
   {
     path:"",
     component : NavbarComponent
+
   }
   
 ];
