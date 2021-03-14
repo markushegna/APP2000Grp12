@@ -1,21 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,requestComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InfocardsComponent } from './components/infocards/infocards.component';
-
 import {MaterialModule} from "./module/material/material.module";
+
 import { KategoriComponent } from './pages/kategori/kategori.component';
 import {FormsModule} from "@angular/forms";
 
 
-
-
-
+import { AngularFireModule } from '@angular/fire';
+import {environment} from "../environments/environment";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -25,6 +22,8 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     InfocardsComponent,
     KategoriComponent,
+    requestComponent,
+  
 
   ],
   imports: [
@@ -34,6 +33,9 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule
+    AngularFireModule.initializeApp(environment),
+    AngularFirestoreModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,12 +7,15 @@ import {FormsModule} from "@angular/forms";
 import {RatingModule} from "primeng/rating";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
+
 import {KategoriComponent} from "./pages/kategori/kategori.component";
+
+import{NavbarComponent}  from "./components/navbar/navbar.component"
 
 
 const routes: Routes = [
   {
-    path:'',
+    path:'home',
     component: HomeComponent
   },
   {
@@ -23,17 +26,25 @@ const routes: Routes = [
     path:'restaurantView',
     component: RestaurantViewComponent
   },
+
   {
     path:'kategori',
     component: KategoriComponent
+
+  
+  {
+    path:"",
+    component : NavbarComponent
+
   }
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
-  declarations: [
-    RestaurantViewComponent
-  ],
-  exports: [RouterModule, RestaurantViewComponent]
+
+  
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent]
