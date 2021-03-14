@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfocardsComponent } from './components/infocards/infocards.component';
 
 import {MaterialModule} from "./module/material/material.module";
+import { KategoriComponent } from './pages/kategori/kategori.component';
+import {FormsModule} from "@angular/forms";
+
 
 
 
@@ -20,16 +23,17 @@ import {MaterialModule} from "./module/material/material.module";
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    InfocardsComponent
+    InfocardsComponent,
+    KategoriComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MaterialModule
-
-
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

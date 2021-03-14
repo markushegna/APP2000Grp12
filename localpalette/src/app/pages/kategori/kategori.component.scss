@@ -1,0 +1,83 @@
+*:focus {
+  outline: 0;
+}
+
+.content-container {
+
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  .flex-top-del-container{
+    display: flex;
+
+    .top-del {
+      justify-content: center;
+      align-items: center;
+      margin-top: 3%;
+      background-size: cover;
+      height: 350px;
+      width: 100%;
+
+      .background-image{
+        /* background-size: cover;
+        opacity: 0.8;
+        height: 350px;
+        position: relative;*/
+        background: url("https://hirro.co.uk/wp-content/uploads/2019/05/professional-wordpress-theme-by-indigothemes-musicmacho-pro-hero-background.jpg") no-repeat center;
+        background-size: cover;
+        position: relative;
+        height: 350px;
+        opacity: 1;
+      }
+      .tittel {
+       /* justify-content: center;
+        left: 50%;
+        font-size: 60px;
+        !*background: url("background-paint-mood-wallpaper-preview.jpg") no-repeat ;*!
+        margin-top: 3%;
+        position: absolute;
+        z-index: 999;*/
+
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        font-size: 60px;
+      }
+    }
+  }
+
+
+
+
+  .container {
+    margin-top: 6%;
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: center;
+
+
+    .kategori-container {
+
+     width: 400px;
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+      margin: 4px;
+      color:beige;
+      height: 250px;
+      border-radius: 10px;
+      background-size: cover;
+      background-image: url("https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+      .kategori-tittel{
+        font-size: 28px;
+      }
+
+    }
+  }
+}
+
