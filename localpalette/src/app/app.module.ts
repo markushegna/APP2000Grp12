@@ -5,26 +5,25 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./module/material/material.module";
-import { UserauthComponent } from './userauth/userauth.component';
-
-
-
-
+import { AngularFireModule } from '@angular/fire';
+import {environment} from "../environments/environment";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     requestComponent,
-    UserauthComponent
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MaterialModule
-
+    MaterialModule,
+    AngularFireModule.initializeApp(environment),
+    AngularFirestoreModule
 
   ],
   providers: [],
