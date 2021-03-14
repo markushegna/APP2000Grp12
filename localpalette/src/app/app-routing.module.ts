@@ -9,13 +9,14 @@ import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {KategoriComponent} from "./pages/kategori/kategori.component";
 
+
 const routes: Routes = [
   {
     path:'',
     component: HomeComponent
   },
   {
-    path:'infocards',
+    path:'gallery',
     component: InfocardsComponent
   },
   {
