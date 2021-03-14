@@ -10,7 +10,7 @@ import {MatIconModule} from "@angular/material/icon";
 
 const routes: Routes = [
   {
-    path:'',
+    path:'home',
     component: HomeComponent
   },
   {
@@ -21,13 +21,16 @@ const routes: Routes = [
     path:'restaurantView',
     component: RestaurantViewComponent
   }
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
-  declarations: [
+  /*declarations: [
     RestaurantViewComponent
   ],
-  exports: [RouterModule, RestaurantViewComponent]
+  */
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent]
