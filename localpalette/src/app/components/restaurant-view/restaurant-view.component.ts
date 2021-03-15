@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantViewComponent implements OnInit {
 
-  val: number = 3;
+  //val: number = 3;
 
   constructor() { }
 
