@@ -13,6 +13,10 @@ import {FormsModule} from "@angular/forms";
 import { AngularFireModule } from '@angular/fire';
 import {environment} from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {NavbarComponent} from "./components/navbar/navbar.component";
+import {HomeComponent} from "./pages/home/home.component";
+import {InfocardsComponent} from "./components/infocards/infocards.component";
+import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
 
 
 @NgModule({
@@ -22,8 +26,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     HomeComponent,
     InfocardsComponent,
     KategoriComponent,
-    requestComponent,
-  
+    RestauranterComponent,
+
+
 
   ],
   imports: [
@@ -32,7 +37,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
     AngularFireModule.initializeApp(environment),
     AngularFirestoreModule
 

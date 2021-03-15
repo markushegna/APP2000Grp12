@@ -28,23 +28,26 @@ const routes: Routes = [
   },
 
   {
-    path:'kategori',
+    path: 'kategori',
     component: KategoriComponent
 
-  
+  },
   {
     path:"",
     component : NavbarComponent
 
   }
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
+  declarations: [
+    RestaurantViewComponent
+  ],
 
-  
-  exports: [RouterModule]
+
+  exports: [RouterModule, RestaurantViewComponent]
 })
 export class AppRoutingModule { }
 export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent]
