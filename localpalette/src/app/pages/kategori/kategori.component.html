@@ -3,29 +3,33 @@
   <div class="flex-top-del-container">
     <div class="top-del">
       <div class="background-image">
-        <h1 class="tittel">Kategorier</h1>
+        <h1 class="tittel">Local Palette kategorier</h1>
+        <div class="search-field">
+          <label>
+            <input #searchInput  class="search__input" type="text" placeholder="Let etter kategorier...">
+            <a class="search-btn" (click)="submitFilter(searchInput)"><i class="fas fa-search"></i></a>
+          </label>
+        </div>
+
       </div>
 
     </div>
   </div>
 
   <div class="container">
-    <div routerLink="/infocards" class="kategori-container">
+    <div routerLink="/restauranter" class="kategori-container">
       <h3 class="kategori-tittel" >Restauranter</h3>
     </div>
-    <div routerLink="/infocards"  class="kategori-container">
+    <div routerLink="/restauranter" class="kategori-container">
       <h3 class="kategori-tittel" >Restauranter</h3>
-
     </div>
-    <div routerLink="/infocards" class="kategori-container">
-      <h3 class="kategori-tittel">Restauranter</h3>
-
-    </div>
-    <div routerLink="/infocards" class="kategori-container">
+    <div routerLink="/restauranter" class="kategori-container">
       <h3 class="kategori-tittel" >Restauranter</h3>
-
     </div>
-    <div routerLink="/infocards" class="kategori-container">
+    <div routerLink="/restauranter" class="kategori-container">
+      <h3 class="kategori-tittel" >Restauranter</h3>
+    </div>
+    <div routerLink="/restauranter" class="kategori-container">
       <h3 class="kategori-tittel" >Restauranter</h3>
     </div>
 

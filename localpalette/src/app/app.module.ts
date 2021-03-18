@@ -17,6 +17,7 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {InfocardsComponent} from "./components/infocards/infocards.component";
 import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
+import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { RestauranterComponent } from './pages/kategori/restauranter/restaurante
     InfocardsComponent,
     KategoriComponent,
     RestauranterComponent,
+    RegistreringComponent,
 
 
 
