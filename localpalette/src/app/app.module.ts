@@ -23,6 +23,7 @@ import { RegistreringComponent } from './pages/kategori/registrering/registrerin
 
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
+import {AngularFireAuthModule} from "@angular/fire/auth";
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-v
 
 
   NavbarComponent,
-  HomeComponent
+  HomeComponent,
+  UserAuthComponent
   //InfocardsComponent,
   //KategoriComponent,
 
@@ -54,6 +56,7 @@ import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-v
 
     MaterialModule,
     FormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment),
     AngularFirestoreModule
 
