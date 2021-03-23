@@ -11,6 +11,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {KategoriComponent} from "./pages/kategori/kategori.component";
 
 import{NavbarComponent}  from "./components/navbar/navbar.component"
+import {RestauranterComponent} from "./pages/kategori/restauranter/restauranter.component";
+import {RegistreringComponent} from "./pages/kategori/registrering/registrering.component";
 
 
 
@@ -23,7 +25,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'gallery',
+    path:'inforcards',
     component: InfocardsComponent
   },
   {
@@ -32,10 +34,20 @@ const routes: Routes = [
   },
 
   {
-    path: 'kategori',
-    component: KategoriComponent
-
+    path: 'kategori', component: KategoriComponent
   },
+
+  {
+    path: 'restauranter',
+    component: RestauranterComponent
+  },
+
+  {
+    path: 'registrering',
+    component: RegistreringComponent
+  }
+
+
 ];
 
 @NgModule({

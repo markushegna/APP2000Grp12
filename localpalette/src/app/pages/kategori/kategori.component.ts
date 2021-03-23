@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {KategoriService} from "../../service/kategori.service";
 
 @Component({
   selector: 'app-kategori',
@@ -10,6 +11,10 @@ export class KategoriComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
+  submitFilter(searchInput: HTMLInputElement) {
+
+  }
 }

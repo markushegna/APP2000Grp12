@@ -18,6 +18,7 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {InfocardsComponent} from "./components/infocards/infocards.component";
 import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
+import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
 
 
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
@@ -35,6 +36,7 @@ import {HomeComponent} from  "./pages/home/home.component"
     InfocardsComponent,
     KategoriComponent,
     RestauranterComponent,
+    RegistreringComponent,
 
 
 
