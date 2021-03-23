@@ -15,6 +15,10 @@ import {RestauranterComponent} from "./pages/kategori/restauranter/restauranter.
 import {RegistreringComponent} from "./pages/kategori/registrering/registrering.component";
 
 
+
+import { LoginComponent } from './pages/login/login.component';
+import {UserAuthComponent} from "./components/user-auth/user-auth.component"
+
 const routes: Routes = [
   {
     path:'home',
@@ -32,6 +36,7 @@ const routes: Routes = [
   {
     path: 'kategori', component: KategoriComponent
   },
+
   {
     path: 'restauranter',
     component: RestauranterComponent
@@ -41,6 +46,7 @@ const routes: Routes = [
     path: 'registrering',
     component: RegistreringComponent
   }
+
 
 ];
 
@@ -52,6 +58,25 @@ const routes: Routes = [
 
 
   exports: [RouterModule, RestaurantViewComponent]
+  },
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:"",
+    component:UserAuthComponent
+  }
+
+  
+];
+
+@NgModule({
+  //imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
+
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+
 })
 export class AppRoutingModule { }
-export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent]
+export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent,LoginComponent,UserAuthComponent]
