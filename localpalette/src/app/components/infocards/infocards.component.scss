@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   margin-left: 1%;
-  margin-top: 10%;
+  margin-top: 1%;
 
   .cards {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 
     .restaurants {
       max-width: 400px;
       margin-right: 1%;
+
 
 
     }

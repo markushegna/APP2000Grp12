@@ -22,9 +22,7 @@ import { RegistreringComponent } from './pages/kategori/registrering/registrerin
 
 
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
-import { FormsModule } from '@angular/forms';
-import {NavbarComponent} from "./components/navbar/navbar.component"
-import {HomeComponent} from  "./pages/home/home.component"
+import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 
 
 @NgModule({
@@ -37,7 +35,7 @@ import {HomeComponent} from  "./pages/home/home.component"
     KategoriComponent,
     RestauranterComponent,
     RegistreringComponent,
-
+    RestaurantViewComponent,
 
 
 
@@ -45,7 +43,7 @@ import {HomeComponent} from  "./pages/home/home.component"
   HomeComponent
   //InfocardsComponent,
   //KategoriComponent,
-    
+
 
   ],
   imports: [
@@ -59,7 +57,7 @@ import {HomeComponent} from  "./pages/home/home.component"
     AngularFireModule.initializeApp(environment),
     AngularFirestoreModule
 
-  
+
    // AngularFireModule.initializeApp(environment),
     //AngularFirestoreModule
 
