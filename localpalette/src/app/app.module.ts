@@ -24,6 +24,7 @@ import { RegistreringComponent } from './pages/kategori/registrering/registrerin
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 import {AngularFireAuthModule} from "@angular/fire/auth";
+import {RatingModule} from "primeng/rating";
 
 
 @NgModule({
@@ -58,10 +59,11 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
     FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    RatingModule,
 
 
-   // AngularFireModule.initializeApp(environment),
+    // AngularFireModule.initializeApp(environment),
     //AngularFirestoreModule
 
 
