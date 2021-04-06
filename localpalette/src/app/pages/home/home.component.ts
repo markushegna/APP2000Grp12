@@ -9,10 +9,10 @@ import {CommentfieldService} from "../../service/commentfield.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: CommentfieldService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.service.getCat();
+  
   }
 
 }

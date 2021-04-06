@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'registrering',
     component: RegistreringComponent
+  },
+  {
+    path:"register-user",
+    component:UserAuthComponent
   }
 
 

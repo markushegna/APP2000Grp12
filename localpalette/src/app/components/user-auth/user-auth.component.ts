@@ -24,7 +24,9 @@ export class UserAuthComponent implements OnInit {
   SignOut(){
     this.authenticationservise.SignOut();
   }
-
+  Googleauth(){
+    this.authenticationservise.GoogleAuth();
+  }
   ngOnInit(): void {
   }
 
