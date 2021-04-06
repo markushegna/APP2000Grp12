@@ -22,15 +22,25 @@ import { RegistreringComponent } from './pages/kategori/registrering/registrerin
 
 
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
+
+import { FormsModule } from '@angular/forms';
+import {NavbarComponent} from "./components/navbar/navbar.component"
+import {HomeComponent} from  "./pages/home/home.component"
+
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {RatingModule} from "primeng/rating";
 
 
+
+import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
+import {AngularFireAuthModule} from "@angular/fire/auth";
+import {AuthService} from "../app/service/auth.service"
+
 @NgModule({
   declarations: [
     AppComponent,
-
+    
     NavbarComponent,
     HomeComponent,
     InfocardsComponent,
@@ -38,10 +48,11 @@ import {RatingModule} from "primeng/rating";
     RestauranterComponent,
     RegistreringComponent,
     RestaurantViewComponent,
-
-
-
+    
   NavbarComponent,
+  HomeComponent
+  HomeComponent,
+  UserAuthComponent,
   HomeComponent,
   UserAuthComponent
   //InfocardsComponent,
@@ -54,13 +65,13 @@ import {RatingModule} from "primeng/rating";
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-
     MaterialModule,
     FormsModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     RatingModule,
+
 
 
     // AngularFireModule.initializeApp(environment),
@@ -68,7 +79,7 @@ import {RatingModule} from "primeng/rating";
 
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
