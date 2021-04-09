@@ -26,7 +26,7 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatToolbarModule,
     FlexLayoutModule,
-    MaterialModule,
+    
     FormsModule
   ],
   exports:[
@@ -44,7 +44,6 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatToolbarModule,
     FlexLayoutModule,
-    MaterialModule,
     FormsModule
   ]
 })

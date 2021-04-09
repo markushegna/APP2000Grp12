@@ -1,0 +1,36 @@
+<div class="displayTable">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <h3> Log in </h3>
+            <div class="formGroup">
+                <input type="text" class="formControl" placeholder="Username" #userName required>
+              </div>
+              <div class="formGroup">
+                <input type="password" class="formControl" placeholder="Password" #userPassword required>
+              </div>
+              <div class="formGroup">
+                <input type="button" class="btn btnPrimary" value="Log in" (click)="auth.SignIn(userName.value, userPassword.value)">
+              </div>
+              <div class="formGroup">
+                <span class="or"><span class="orInner">Or</span></span>
+              </div>
+              <div class="formGroup">
+                <button type="button" class="btn googleBtn" (click)="auth.GoogleAuth()">
+                  <i class="fab fa-google-plus-g"></i>
+                  log in med google
+                </button>
+              </div>
+
+              <div class="forgotPassword">
+                <span routerLink="/forgot-password">Glemt passord?</span>
+              </div>
+
+              <div class="redirectToLogin">
+                <span> har ikke en konto ?<span class="redirect" routerLink="/register-user"> Registre deg nå</span></span>
+              </div>
+                          
+        </div>
+    </div>
+
+</div>
+

@@ -16,10 +16,14 @@ import {RegistreringComponent} from "./pages/kategori/registrering/registrering.
 
 
 
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import {UserAuthComponent} from "./components/user-auth/user-auth.component"
-
+import { SignupComponent } from './components/signup/signup.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
+import {AuthGuard} from './shared/guard/auth.guard';
 const routes: Routes = [
+  
   {
     path:'home',
     component: HomeComponent
@@ -47,8 +51,19 @@ const routes: Routes = [
     component: RegistreringComponent
   },
   {
-    path:"register-user",
-    component:UserAuthComponent
+    path:'login',
+    component:LoginComponent
+  },
+  {
+    path:'register-user',
+    component:SignupComponent
+  },
+  {
+      path:'forgot-password',
+      component:ForgotPasswordComponent
+  },
+  {
+    path:"brukerDash",component:BrukerDashComponent,canActivate: [AuthGuard]
   }
 
 
@@ -83,4 +98,3 @@ const routes: Routes = [
 
 })
 export class AppRoutingModule { }
-export const requestComponent = [HomeComponent,InfocardsComponent,RestaurantViewComponent,NavbarComponent,LoginComponent,UserAuthComponent]

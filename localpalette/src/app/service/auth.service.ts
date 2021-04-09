@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from "@angular/router";
 import firebase from "firebase/app";
 import { KategoriService } from './kategori.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -32,17 +33,17 @@ export class AuthService {
       }
     })
   }
-
+ 
   // Sign in with email/password
   async SignIn(email:string, password:string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
-        this.router.navigate(['kategori']);
+        this.router.navigate(['brukerDash']);
       });
       this.SetUserData(result.user);
     } catch (error) {
-      window.alert(error.message);
+      Swal.fire('noe gikk galt')
     }
   }
 
@@ -52,12 +53,14 @@ export class AuthService {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       /* Call the SendVerificaitonMail() function when new user sign
       up and returns promise */
-      //this.SendVerificationMail();
+     this.SendVerificationMail();
       this.SetUserData(result.user);
     } catch (error) {
-      window.alert(error.message);
+     window.alert(error.message);
+     
     }
   }
+
 
  
 
@@ -67,11 +70,11 @@ export class AuthService {
       await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
       window.alert('Password reset email sent, check your inbox.');
     } catch (error) {
-      window.alert(error);
+       Swal.fire('Feil: Det er ingen bruker som tilsvarer denne identifikatoren. Brukeren kan ha blitt slettet. ')
     }
   }
 
-  // Returns true when user is looged in and email is verified
+  // returnere om  true hvis brukekr er loget inn 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
@@ -94,13 +97,18 @@ TwitterAuth(){
     try {
       const result = await this.afAuth.signInWithPopup(provider);
       this.ngZone.run(() => {
-        this.router.navigate(['kategori']);
+        this.router.navigate(['brukerDash']);
       });
       this.SetUserData(result.user);
     } catch (error) {
       window.alert(error);
     }
   }
+  async SendVerificationMail() {
+    (await this.afAuth.currentUser).sendEmailVerification().then(() => {
+        console.log('email sent');
+    });
+}
 
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
@@ -125,6 +133,8 @@ TwitterAuth(){
   async SignOut() {
     await this.afAuth.signOut();
     localStorage.removeItem('user');
-    this.router.navigate(['sign-in']);
+    this.router.navigate(['login']);
   }
+// denne functionen return boolen og viser true når bruker er loget innn  
+  
 }
