@@ -29,7 +29,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'inforcards',
+    path:'infocards',
     component: InfocardsComponent
   },
   {
@@ -38,7 +38,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'kategori', component: KategoriComponent
+    path: 'kategori',
+    component: KategoriComponent
   },
 
   {
@@ -68,7 +69,7 @@ const routes: Routes = [
 
 
 ];
-
+/*
 @NgModule({
   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
   declarations: [
@@ -87,8 +88,8 @@ const routes: Routes = [
     component:UserAuthComponent
   }
 
-  
-];
+
+];*/
 
 @NgModule({
   //imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],

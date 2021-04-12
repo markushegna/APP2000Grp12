@@ -19,18 +19,11 @@ import { RegistreringComponent } from './pages/kategori/registrering/registrerin
 
 
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
-<<<<<<< Updated upstream
+
 import { FormsModule } from '@angular/forms';
 import {NavbarComponent} from "./components/navbar/navbar.component"
 import {HomeComponent} from  "./pages/home/home.component"
 
-<<<<<<< Updated upstream
-=======
-import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
-import {AngularFireAuthModule} from "@angular/fire/auth";
-import {AuthService} from "../app/service/auth.service"
->>>>>>> Stashed changes
-=======
 import {RatingModule} from "primeng/rating";
 
 
@@ -42,32 +35,24 @@ import {SignupComponent} from "./components/signup/signup.component"
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
 import { StyleComponent } from './components/style/style.component';
->>>>>>> Stashed changes
+
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    
     NavbarComponent,
     HomeComponent,
     InfocardsComponent,
     KategoriComponent,
     RestauranterComponent,
     RegistreringComponent,
-<<<<<<< Updated upstream
-
-
-
 
   NavbarComponent,
-<<<<<<< Updated upstream
   HomeComponent
-=======
   HomeComponent,
   UserAuthComponent,
-  
->>>>>>> Stashed changes
-=======
+
     RestaurantViewComponent,
     LoginComponent,
   NavbarComponent,
@@ -77,10 +62,12 @@ import { StyleComponent } from './components/style/style.component';
   SignupComponent,
   BrukerDashComponent,
   StyleComponent,
->>>>>>> Stashed changes
+
+  HomeComponent,
+  UserAuthComponent
   //InfocardsComponent,
   //KategoriComponent,
-    
+
 
   ],
   imports: [
@@ -88,19 +75,16 @@ import { StyleComponent } from './components/style/style.component';
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-
     MaterialModule,
     FormsModule,
-<<<<<<< Updated upstream
-    AngularFireModule.initializeApp(environment),
-=======
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
->>>>>>> Stashed changes
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    RatingModule,
 
-  
-   // AngularFireModule.initializeApp(environment),
+
+
+    // AngularFireModule.initializeApp(environment),
     //AngularFirestoreModule
 
 
