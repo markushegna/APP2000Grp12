@@ -8,7 +8,6 @@ import firebase from "firebase/app";
 import { KategoriService } from './kategori.service';
 import Swal from 'sweetalert2';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,14 +20,7 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // fjerener outscope varsel
   ) {
-      // lagrer bruker info på localstorage og setter det til null etter person har logget ut
-    public afs: AngularFirestore,   // firestore service
-    public afAuth: AngularFireAuth, // gir tilgang til  firestore authentication
-    public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
-  ) {
-    /* Saving user data in localstorage when
-    logged in and setting up null when logged out */
+    // lagrer bruker info på localstorage og setter det til null etter person har logget ut
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -49,7 +41,7 @@ export class AuthService {
         // etter bruker har loget inn den skal vidre til bruker dash
         this.router.navigate(['home']);
       });
-      await this.SetUserData(result.user);
+      this.SetUserData(result.user);
     } catch (error) {
       Swal.fire('noe gikk galt')
     }
@@ -60,13 +52,14 @@ export class AuthService {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       /* caller sendverifaction function som sender verfication til bruker */
-     this.SendVerificationMail();
+      this.SendVerificationMail();
       this.SetUserData(result.user);
     } catch (error) {
-     window.alert(error.message);
+      window.alert(error.message);
 
     }
   }
+
 
 
 
@@ -76,7 +69,7 @@ export class AuthService {
       await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
       window.alert('Password reset email sent, check your inbox.');
     } catch (error) {
-       Swal.fire('Feil: Det er ingen bruker som tilsvarer denne identifikatoren. Brukeren kan ha blitt slettet. ')
+      Swal.fire('Feil: Det er ingen bruker som tilsvarer denne identifikatoren. Brukeren kan ha blitt slettet. ')
     }
   }
 
@@ -95,10 +88,10 @@ export class AuthService {
 
   // log in med twitter
 
-FacebookAuth(){
-  const provider= new firebase.auth.FacebookAuthProvider();
-  return this.AuthLogin(provider)
-}
+  FacebookAuth(){
+    const provider= new firebase.auth.FacebookAuthProvider();
+    return this.AuthLogin(provider)
+  }
 
   // funcksjon som tar imot  andre providre som facebook og google som må bekrefte bruker er eksister fra sin api
   async AuthLogin(provider:any) {
@@ -107,7 +100,7 @@ FacebookAuth(){
       this.ngZone.run(() => {
         this.router.navigate(['home']);
       });
-      await this.SetUserData(result.user);
+      this.SetUserData(result.user);
     } catch (error) {
       window.alert(error);
     }
@@ -116,14 +109,14 @@ FacebookAuth(){
 // sender bekreftelse etter bruker har registret seg
   async SendVerificationMail() {
     (await this.afAuth.currentUser).sendEmailVerification().then(() => {
-        console.log('email sent');
+      console.log('email sent');
     });
-}
+  }
 
-/* bruker data når personsn har loget inn med  email og passord,
-når en bruker regisrer seg så skal den info om den person og sende til
- firestore collection user  ved hjelp av   AngularFirestore + AngularFirestoreDocument service
-*/
+  /* bruker data når personsn har loget inn med  email og passord,
+  når en bruker regisrer seg så skal den info om den person og sende til
+   firestore collection user  ved hjelp av   AngularFirestore + AngularFirestoreDocument service
+  */
   SetUserData(user:any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
@@ -132,7 +125,7 @@ når en bruker regisrer seg så skal den info om den person og sende til
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-        }
+    }
     return userRef.set(userData, {
       merge: true
     })
