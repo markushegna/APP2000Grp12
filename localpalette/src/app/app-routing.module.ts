@@ -1,3 +1,6 @@
+/*
+* @Author: Kim Andre
+* */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
@@ -18,16 +21,16 @@ import {RegistreringComponent} from "./pages/kategori/registrering/registrering.
 
 import { LoginComponent } from './pages/login/login.component';
 import {UserAuthComponent} from "./components/user-auth/user-auth.component"
+import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
+import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
+
 
 const routes: Routes = [
   {
-    path:'home',
+    path:'',
     component: HomeComponent
   },
-  {
-    path:'infocards',
-    component: InfocardsComponent
-  },
+
   {
     path:'restaurantView',
     component: RestaurantViewComponent
@@ -38,10 +41,14 @@ const routes: Routes = [
     component: KategoriComponent
   },
 
+
   {
-    path: 'restauranter',
-    component: RestauranterComponent
+    path: 'kategori/:id',
+    component: KategoriviewComponent
   },
+
+
+
 
   {
     path: 'registrering',

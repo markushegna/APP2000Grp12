@@ -1,8 +1,33 @@
-<!-- Markus -->
-<div class="content">
-  <h2>Forslag til deg</h2>
-    <div class="cards">
+<!-- Markus Kim Andre-->
+<div class="" >
+  <div class="content" >
+
+    <h2>Forslag til deg for</h2>
+
+    <div class="cards"*ngFor="let restaurant of restauranter" >
       <mat-card class="restaurants">
+        <mat-card-header>
+          <mat-card-title>{{restaurant.data.navn}}</mat-card-title>
+          <mat-card-subtitle>
+            5<mat-icon>star</mat-icon>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image src="assets/images/testImageMatcard.jpg" alt="">
+
+        <mat-card-content>
+          <p>
+            Info om restauranten. Kort og presis beskrivelse.
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button color="primary" mat-flat-button [routerLink]="['/restaurantView']">Se mer</button>
+          <button mat-button></button>
+        </mat-card-actions>
+
+      </mat-card>
+      <!--<mat-card class="restaurants">
         <mat-card-header>
           <mat-card-title>Restaurant</mat-card-title>
           <mat-card-subtitle>
@@ -23,73 +48,53 @@
           <button mat-button></button>
         </mat-card-actions>
 
-        </mat-card>
-        <mat-card class="restaurants">
-          <mat-card-header>
-            <mat-card-title>Restaurant</mat-card-title>
-            <mat-card-subtitle>
-              5<mat-icon>star</mat-icon>
-            </mat-card-subtitle>
-          </mat-card-header>
+      </mat-card>
+      <mat-card class="restaurants">
+        <mat-card-header>
+          <mat-card-title>Restaurant</mat-card-title>
+          <mat-card-subtitle>
+            5<mat-icon>star</mat-icon>
+          </mat-card-subtitle>
+        </mat-card-header>
 
-          <img mat-card-image src="assets/images/testImageMatcard.jpg" alt="">
+        <img mat-card-image src="assets/images/testImageMatcard.jpg">
 
-          <mat-card-content>
-            <p>
-              Info om restauranten. Kort og presis beskrivelse.
-            </p>
-          </mat-card-content>
+        <mat-card-content>
+          <p>
+            Info om restauranten. Kort og presis beskrivelse.
+          </p>
+        </mat-card-content>
 
-          <mat-card-actions>
-            <button color="primary" mat-flat-button [routerLink]="['/restaurantView']">Se mer</button>
-            <button mat-button></button>
-          </mat-card-actions>
+        <mat-card-actions>
+          <button color="primary" mat-flat-button [routerLink]="['/restaurantView']">Se mer</button>
+          <button mat-button></button>
+        </mat-card-actions>
 
-        </mat-card>
-        <mat-card class="restaurants">
-          <mat-card-header>
-            <mat-card-title>Restaurant</mat-card-title>
-            <mat-card-subtitle>
-              5<mat-icon>star</mat-icon>
-            </mat-card-subtitle>
-          </mat-card-header>
+      </mat-card>
 
-          <img mat-card-image src="assets/images/testImageMatcard.jpg">
+      <mat-card class="restaurants">
+        <mat-card-header>
+          <mat-card-title>Restaurant</mat-card-title>
+          <mat-card-subtitle>
+            5<mat-icon>star</mat-icon>
+          </mat-card-subtitle>
+        </mat-card-header>
 
-          <mat-card-content>
-            <p>
-              Info om restauranten. Kort og presis beskrivelse.
-            </p>
-          </mat-card-content>
+        <img mat-card-image src="assets/images/testImageMatcard.jpg">
 
-          <mat-card-actions>
-            <button color="primary" mat-flat-button [routerLink]="['/restaurantView']">Se mer</button>
-            <button mat-button></button>
-          </mat-card-actions>
+        <mat-card-content>
+          <p>
+            Info om restauranten. Kort og presis beskrivelse.
+          </p>
+        </mat-card-content>
 
-        </mat-card>
+        <mat-card-actions>
+          <button color="primary" mat-flat-button [routerLink]="['/restaurantView']">Se mer</button>
+          <button mat-button></button>
+        </mat-card-actions>
 
-        <mat-card class="restaurants">
-          <mat-card-header>
-            <mat-card-title>Restaurant</mat-card-title>
-            <mat-card-subtitle>
-              5<mat-icon>star</mat-icon>
-            </mat-card-subtitle>
-          </mat-card-header>
-
-          <img mat-card-image src="assets/images/testImageMatcard.jpg">
-
-          <mat-card-content>
-            <p>
-              Info om restauranten. Kort og presis beskrivelse.
-            </p>
-          </mat-card-content>
-
-          <mat-card-actions>
-            <button color="primary" mat-flat-button [routerLink]="['/restaurantView']">Se mer</button>
-            <button mat-button></button>
-          </mat-card-actions>
-
-        </mat-card>
+      </mat-card>-->
+    </div>
   </div>
 </div>
+
