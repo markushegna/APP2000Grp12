@@ -1,0 +1,38 @@
+<div class="displayTable">
+  <div class="displayTableCell">
+
+    <div class="authBlock">
+      <h3>Registrer deg </h3>
+
+      <div class="formGroup">
+        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+      </div>
+
+      <div class="formGroup">
+        <input type="password" class="formControl" placeholder="Password" #userPwd required>
+      </div>
+
+      <div class="formGroup">
+        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="afAuth.SignUp(userEmail.value, userPwd.value)">
+      </div>
+
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+
+      <!-- Continue with Google -->
+      <div class="formGroup">
+        <button type="button" class="btn googleBtn" (click)="afAuth.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Fortsett med Google 
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="redirectToLogin">
+      <span>Har du allerede en konto ? <span class="redirect" routerLink="/login">Logg Inn</span></span>
+    </div>
+  </div>
+
+</div>

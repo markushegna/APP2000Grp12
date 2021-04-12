@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from "@angular/router";
 import firebase from "firebase/app";
 import { KategoriService } from './kategori.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,9 @@ export class AuthService {
     public afs: AngularFirestore,   // firestore service 
     public afAuth: AngularFireAuth, // gir tilgang til  firestore authentication 
     public router: Router,  
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone // fjerener outscope varsel
   ) {    
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
+      // lagrer bruker info på localstorage og setter det til null etter person har logget ut
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -32,99 +32,111 @@ export class AuthService {
       }
     })
   }
-
-  // Sign in with email/password
+ 
+  // async funciton fodri den er basert på bruker sin input  loger inn med email og passord som er lagret på databasen 
   async SignIn(email:string, password:string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
-        this.router.navigate(['kategori']);
+        // etter bruker har loget inn den skal vidre til bruker dash 
+        this.router.navigate(['home']);
       });
       this.SetUserData(result.user);
     } catch (error) {
-      window.alert(error.message);
+      Swal.fire('noe gikk galt')
     }
   }
 
-  // Sign up with email/password
+  // Regisrer bruker med email og pasord 
   async SignUp(email:string, password:string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
-      /* Call the SendVerificaitonMail() function when new user sign
-      up and returns promise */
-      //this.SendVerificationMail();
+      /* caller sendverifaction function som sender verfication til bruker */
+     this.SendVerificationMail();
       this.SetUserData(result.user);
     } catch (error) {
-      window.alert(error.message);
+     window.alert(error.message);
+     
     }
   }
 
+
  
 
-  // Reset Forggot password
+  // om bruker har glemt passord ofg vil reset det 
   async ForgotPassword(passwordResetEmail:string) {
     try {
       await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
       window.alert('Password reset email sent, check your inbox.');
     } catch (error) {
-      window.alert(error);
+       Swal.fire('Feil: Det er ingen bruker som tilsvarer denne identifikatoren. Brukeren kan ha blitt slettet. ')
     }
   }
 
-  // Returns true when user is looged in and email is verified
+  // returnere   true hvis brukekr er loget inn   den skjekker om bruker er loget vet å hente data fra localstorage 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    return (user !== null) ? true : false;
   }
 
-  // Sign in with Google
+  // eller du kan loge inn direkte med google 
   GoogleAuth() {
     const provider1 = new firebase.auth.GoogleAuthProvider();
+  
     return this.AuthLogin(provider1);
   }
+
   // log in med twitter 
 
-TwitterAuth(){
-  const provider= new firebase.auth.TwitterAuthProvider();
+FacebookAuth(){
+  const provider= new firebase.auth.FacebookAuthProvider();
   return this.AuthLogin(provider)
 }
 
-  // funcksjon som tar imot  andre providre som twiterr og google som ikke som må kalle andre api for bekreftelse 
+  // funcksjon som tar imot  andre providre som facebook og google som må bekrefte bruker er eksister fra sin api  
   async AuthLogin(provider:any) {
     try {
       const result = await this.afAuth.signInWithPopup(provider);
       this.ngZone.run(() => {
-        this.router.navigate(['kategori']);
+        this.router.navigate(['home']);
       });
       this.SetUserData(result.user);
     } catch (error) {
       window.alert(error);
     }
   }
+  
+// sender bekreftelse etter bruker har registret seg 
+  async SendVerificationMail() {
+    (await this.afAuth.currentUser).sendEmailVerification().then(() => {
+        console.log('email sent');
+    });
+}
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user) {
+/* bruker data når personsn har loget inn med  email og passord,
+når en bruker regisrer seg så skal den info om den person og sende til 
+ firestore collection user  ved hjelp av   AngularFirestore + AngularFirestoreDocument service  
+*/
+  SetUserData(user:any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
-    
-
-    }
+      emailVerified: user.emailVerified,
+        }
     return userRef.set(userData, {
       merge: true
     })
   }
 
-  // Sign out 
+  // setter local storage til null og navigere vidre til login siden 
   async SignOut() {
     await this.afAuth.signOut();
     localStorage.removeItem('user');
-    this.router.navigate(['sign-in']);
+    this.router.navigate(['home']);
   }
+
+  
 }

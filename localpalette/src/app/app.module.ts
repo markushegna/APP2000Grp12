@@ -7,15 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./module/material/material.module";
 
 import { KategoriComponent } from './pages/kategori/kategori.component';
-import {FormsModule} from "@angular/forms";
 
 
 import { AngularFireModule } from '@angular/fire';
 import {environment} from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import {NavbarComponent} from "./components/navbar/navbar.component";
-import {HomeComponent} from "./pages/home/home.component";
 import {InfocardsComponent} from "./components/infocards/infocards.component";
 import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
 import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
@@ -27,15 +24,18 @@ import { FormsModule } from '@angular/forms';
 import {NavbarComponent} from "./components/navbar/navbar.component"
 import {HomeComponent} from  "./pages/home/home.component"
 
-import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
-import {AngularFireAuthModule} from "@angular/fire/auth";
 import {RatingModule} from "primeng/rating";
 
 
-
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 import {AngularFireAuthModule} from "@angular/fire/auth";
-import {AuthService} from "../app/service/auth.service"
+import {AuthService} from "../app/service/auth.service";
+import {LoginComponent} from "./components/login/login.component"
+import {SignupComponent} from "./components/signup/signup.component"
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
+import { StyleComponent } from './components/style/style.component';
+
 
 @NgModule({
   declarations: [
@@ -47,12 +47,22 @@ import {AuthService} from "../app/service/auth.service"
     KategoriComponent,
     RestauranterComponent,
     RegistreringComponent,
-    RestaurantViewComponent,
-    
+
   NavbarComponent,
   HomeComponent
   HomeComponent,
   UserAuthComponent,
+
+    RestaurantViewComponent,
+    LoginComponent,
+  NavbarComponent,
+  HomeComponent,
+  UserAuthComponent,
+  ForgotPasswordComponent,
+  SignupComponent,
+  BrukerDashComponent,
+  StyleComponent,
+
   HomeComponent,
   UserAuthComponent
   //InfocardsComponent,
