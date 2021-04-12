@@ -1,4 +1,4 @@
-<div>
+<div >
   <mat-toolbar>
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -15,9 +15,14 @@
         <a href="#" mat-button>
           <mat-icon>search</mat-icon>
         </a>
-        <a routerLink="/brukerDash" mat-button>
-          <mat-icon >person</mat-icon>
-        </a>
+        <div *ngIf="!auth.isLoggedIn"  >
+          <a routerLink ="/brukerDash" mat-button>  
+            <mat-icon >person</mat-icon>
+          </a>
+  
+        </div>
+       
+
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -40,8 +45,8 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
-      <!--<section class="hero">
-      </section>-->
+      <section class="hero">
+      </section>
 
     </mat-sidenav-content>
   </mat-sidenav-container>

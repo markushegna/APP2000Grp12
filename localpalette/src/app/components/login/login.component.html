@@ -1,18 +1,18 @@
 <div class="displayTable">
     <div class="displayTableCell">
         <div class="authBlock">
-            <h3> Log in </h3>
+            <h3> Logg Inn </h3>
             <div class="formGroup">
-                <input type="text" class="formControl" placeholder="Username" #userName required>
+                <input type="text" class="formControl" placeholder="Brukernavn" #userName required>
               </div>
               <div class="formGroup">
-                <input type="password" class="formControl" placeholder="Password" #userPassword required>
+                <input type="password" class="formControl" placeholder="Passord" #userPassword required>
               </div>
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Log in" (click)="auth.SignIn(userName.value, userPassword.value)">
               </div>
               <div class="formGroup">
-                <span class="or"><span class="orInner">Or</span></span>
+                <span class="or"><span class="orInner">Eller</span></span>
               </div>
               <div class="formGroup">
                 <button type="button" class="btn googleBtn" (click)="auth.GoogleAuth()">
@@ -26,11 +26,68 @@
               </div>
 
               <div class="redirectToLogin">
-                <span> har ikke en konto ?<span class="redirect" routerLink="/register-user"> Registre deg nå</span></span>
+                <span> har ikke en konto ?<span class="redirect" routerLink="/register-user">Registrer deg </span></span>
               </div>
                           
         </div>
     </div>
 
 </div>
+
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+<div class="container">
+            <div class="row">
+                <div class="col-md-11 mt-60 mx-md-auto">
+                    <div class="login-box bg-white pl-lg-5 pl-0">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-md-6">
+                                <div class="form-wrap bg-white">
+                                    <h4 class="btm-sep pb-3 mb-5">Login</h4>
+                                    <form class="form" method="post" action="#">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group position-relative">
+                                                    <span class="zmdi zmdi-account"></span>
+                                                    <input type="email" id="email" class="form-control" placeholder="Email Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group position-relative">
+                                                    <span class="zmdi zmdi-email"></span>
+                                                    <input type="password" id="password" class="form-control" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 text-lg-right">
+                                                <a href="#" class="c-black">Forgot password ?</a>
+                                            </div>
+                                            <div class="col-12 mt-30">
+                                                <button type="submit" id="submit" class="btn btn-lg btn-custom btn-dark btn-block">Sign In
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content text-center">
+                                    <div class="border-bottom pb-5 mb-5">
+                                        <h3 class="c-black">First time here?</h3>
+                                        <a href="sign-up.html" class="btn btn-custom">Sign up</a>
+                                    </div>
+                                    <h5 class="c-black mb-4 mt-n1">Or Sign In With</h5>
+                                    <div class="socials">
+                                        <a href="#" class="zmdi zmdi-facebook"></a>
+                                        <a href="#" class="zmdi zmdi-twitter"></a>
+                                        <a href="#" class="zmdi zmdi-google"></a>
+                                        <a href="#" class="zmdi zmdi-instagram"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
