@@ -1,3 +1,6 @@
+/*
+* @Author: Kim Andre
+* */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
@@ -22,16 +25,17 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
+import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
+import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
+
+
 const routes: Routes = [
-  
+
   {
-    path:'home',
+    path:'',
     component: HomeComponent
   },
-  {
-    path:'infocards',
-    component: InfocardsComponent
-  },
+
   {
     path:'restaurantView',
     component: RestaurantViewComponent
@@ -42,10 +46,14 @@ const routes: Routes = [
     component: KategoriComponent
   },
 
+
   {
-    path: 'restauranter',
-    component: RestauranterComponent
+    path: 'kategori/:id',
+    component: KategoriviewComponent
   },
+
+
+
 
   {
     path: 'registrering',
