@@ -1,10 +1,14 @@
 <h1 class="display-4">register bruker eller </h1>
 
 <div *ngIf="!(authenticationservise.userData | async)">
+  <label>
     <input type="text" [(ngModel)]="email" placeholder="email">
+  </label>
+  <label>
     <input type="password" [(ngModel)]="password" placeholder="password">
+  </label>
 
-    <button (click)="SignUp()">Sign Up</button>
+  <button (click)="SignUp()">Sign Up</button>
 
     <button (click)="SignIn()">Login</button>
     <button (click)="Googleauth()">google auth</button>
@@ -12,3 +16,9 @@
 
 </div>
 
+
+    <h1 class="display-4">register Resturant </h1>
+
+</div>
+
+<button (click)="SignOut()" *ngIf="authenticationservise.userData | async">Logout</button>

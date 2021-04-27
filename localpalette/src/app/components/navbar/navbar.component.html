@@ -18,10 +18,16 @@
 
       </span>
       <div fxShow="true" fxHide.lt-md="true">
+
        
         <a routerLink="/home" mat-button>{{'Home' | translate}}</a>
         <a routerLink="/kategori" mat-button>{{'Category' | translate}}</a>
         <a href="#" mat-button>{{'Gallery' | translate}}</a>
+
+        <a routerLink="/" mat-button>Home</a>
+        <a routerLink="/kategori" mat-button>Kategori</a>
+        <a href="#" mat-button>Gallery</a>
+
         <a href="#" mat-button>Testimonals</a>
         <a href="#" mat-button>{{'Contact Us' |translate}}</a>
         
@@ -51,7 +57,7 @@
         <a href="#" mat-button>
           <mat-icon>search</mat-icon>
         </a>
-       
+
         <a routerLink="/login" mat-button>
           <mat-icon>person</mat-icon>
         </a>

@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./module/material/material.module";
-
 import { KategoriComponent } from './pages/kategori/kategori.component';
 
 
@@ -13,16 +12,16 @@ import { AngularFireModule } from '@angular/fire';
 import {environment} from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
+import { AngularFireModule } from '@angular/fire';
+import {environment} from "../environments/environment";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {InfocardsComponent} from "./components/infocards/infocards.component";
 import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
 import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
-
-
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
 import { FormsModule } from '@angular/forms';
 import {NavbarComponent} from "./components/navbar/navbar.component"
 import {HomeComponent} from  "./pages/home/home.component"
-
 
 import {RatingModule} from "primeng/rating";
 
@@ -35,14 +34,20 @@ import {SignupComponent} from "./components/signup/signup.component"
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
 import { StyleComponent } from './components/style/style.component';
+
 import { TranslateComponent } from './components/translate/translate.component';
-
-
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+
+import {RatingModule} from "primeng/rating";
+import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
+import {AngularFireAuthModule} from "@angular/fire/auth";
+import {AuthService} from "../app/service/auth.service";
+import { KategoriviewComponent } from './components/kategoriview/kategoriview.component';
+import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisorsalonger.component'
 
 @NgModule({
   declarations: [
@@ -54,14 +59,16 @@ import { FooterComponent } from './components/footer/footer.component';
     KategoriComponent,
     RestauranterComponent,
     RegistreringComponent,
+
   NavbarComponent,
+    RestaurantViewComponent,
 
-
+  NavbarComponent,
   HomeComponent,
   UserAuthComponent,
 
-    RestaurantViewComponent,
-    LoginComponent,
+  RestaurantViewComponent,
+  LoginComponent,
   NavbarComponent,
   HomeComponent,
   UserAuthComponent,
@@ -71,10 +78,13 @@ import { FooterComponent } from './components/footer/footer.component';
   StyleComponent,
   TranslateComponent,
   FooterComponent,
-
+  HomeComponent,
+  UserAuthComponent,
+  KategoriviewComponent,
+  FrisorsalongerComponent
   //InfocardsComponent,
   //KategoriComponent,
-    
+
 
   ],
   imports: [
@@ -82,7 +92,6 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-
     MaterialModule,
     FormsModule,
 
@@ -97,6 +106,9 @@ import { FooterComponent } from './components/footer/footer.component';
         deps: [HttpClient]
       }
     })
+
+    // AngularFireModule.initializeApp(environment),
+    //AngularFirestoreModule
 
   ],
   providers: [AuthService,TranslateComponent],

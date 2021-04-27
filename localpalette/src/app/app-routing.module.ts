@@ -1,3 +1,6 @@
+/*
+* @Author: Kim Andre
+* */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
@@ -22,30 +25,37 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
+
 import { TranslateComponent } from './components/translate/translate.component';
+
+import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
+import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
+
 const routes: Routes = [
-  
+
   {
-    path:'home',
+    path:'',
     component: HomeComponent
   },
-  {
-    path:'inforcards',
-    component: InfocardsComponent
-  },
+
   {
     path:'restaurantView',
     component: RestaurantViewComponent
   },
 
   {
-    path: 'kategori', component: KategoriComponent
+    path: 'kategori',
+    component: KategoriComponent
   },
 
+
   {
-    path: 'restauranter',
-    component: RestauranterComponent
+    path: 'kategori/:id',
+    component: KategoriviewComponent
   },
+
+
+
 
   {
     path: 'registrering',
@@ -70,11 +80,20 @@ const routes: Routes = [
 
 ];
 
+
 // @NgModule({
 //   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
 //   declarations: [
 //     RestaurantViewComponent
 //   ],
+
+/*
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
+  declarations: [
+    RestaurantViewComponent
+  ],
+
 
 
 //   exports: [RouterModule, RestaurantViewComponent]
@@ -88,8 +107,13 @@ const routes: Routes = [
 //     component:UserAuthComponent
 //   }
 
+
   
 // ];
+
+
+];*/
+
 
 @NgModule({
   //imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
