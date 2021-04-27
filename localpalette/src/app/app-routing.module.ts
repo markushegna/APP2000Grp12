@@ -25,9 +25,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
+
+import { TranslateComponent } from './components/translate/translate.component';
+
 import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
 import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
-
 
 const routes: Routes = [
 
@@ -77,6 +79,14 @@ const routes: Routes = [
 
 
 ];
+
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
+//   declarations: [
+//     RestaurantViewComponent
+//   ],
+
 /*
 @NgModule({
   imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],
@@ -85,19 +95,25 @@ const routes: Routes = [
   ],
 
 
-  exports: [RouterModule, RestaurantViewComponent]
-  },
-  {
-    path:"login",
-    component:LoginComponent
-  },
-  {
-    path:"",
-    component:UserAuthComponent
-  }
+
+//   exports: [RouterModule, RestaurantViewComponent]
+//   },
+//   {
+//     path:"login",
+//     component:LoginComponent
+//   },
+//   {
+//     path:"",
+//     component:UserAuthComponent
+//   }
+
+
+  
+// ];
 
 
 ];*/
+
 
 @NgModule({
   //imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), FormsModule, RatingModule, MatCardModule, MatIconModule],

@@ -35,6 +35,13 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
 import { StyleComponent } from './components/style/style.component';
 
+import { TranslateComponent } from './components/translate/translate.component';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
+
 import {RatingModule} from "primeng/rating";
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 import {AngularFireAuthModule} from "@angular/fire/auth";
@@ -52,14 +59,16 @@ import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisors
     KategoriComponent,
     RestauranterComponent,
     RegistreringComponent,
+
+  NavbarComponent,
     RestaurantViewComponent,
 
   NavbarComponent,
   HomeComponent,
   UserAuthComponent,
 
-    RestaurantViewComponent,
-    LoginComponent,
+  RestaurantViewComponent,
+  LoginComponent,
   NavbarComponent,
   HomeComponent,
   UserAuthComponent,
@@ -67,7 +76,8 @@ import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisors
   SignupComponent,
   BrukerDashComponent,
   StyleComponent,
-
+  TranslateComponent,
+  FooterComponent,
   HomeComponent,
   UserAuthComponent,
   KategoriviewComponent,
@@ -84,19 +94,28 @@ import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisors
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    RatingModule,
-
-
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
 
     // AngularFireModule.initializeApp(environment),
     //AngularFirestoreModule
 
-
   ],
-  providers: [AuthService],
+  providers: [AuthService,TranslateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
