@@ -19,18 +19,11 @@ import { RegistreringComponent } from './pages/kategori/registrering/registrerin
 
 
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
-<<<<<<< Updated upstream
 import { FormsModule } from '@angular/forms';
 import {NavbarComponent} from "./components/navbar/navbar.component"
 import {HomeComponent} from  "./pages/home/home.component"
 
-<<<<<<< Updated upstream
-=======
-import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
-import {AngularFireAuthModule} from "@angular/fire/auth";
-import {AuthService} from "../app/service/auth.service"
->>>>>>> Stashed changes
-=======
+
 import {RatingModule} from "primeng/rating";
 
 
@@ -42,7 +35,14 @@ import {SignupComponent} from "./components/signup/signup.component"
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
 import { StyleComponent } from './components/style/style.component';
->>>>>>> Stashed changes
+import { TranslateComponent } from './components/translate/translate.component';
+
+
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -54,20 +54,12 @@ import { StyleComponent } from './components/style/style.component';
     KategoriComponent,
     RestauranterComponent,
     RegistreringComponent,
-<<<<<<< Updated upstream
-
-
-
-
   NavbarComponent,
-<<<<<<< Updated upstream
-  HomeComponent
-=======
+
+
   HomeComponent,
   UserAuthComponent,
-  
->>>>>>> Stashed changes
-=======
+
     RestaurantViewComponent,
     LoginComponent,
   NavbarComponent,
@@ -77,7 +69,9 @@ import { StyleComponent } from './components/style/style.component';
   SignupComponent,
   BrukerDashComponent,
   StyleComponent,
->>>>>>> Stashed changes
+  TranslateComponent,
+  FooterComponent,
+
   //InfocardsComponent,
   //KategoriComponent,
     
@@ -91,21 +85,25 @@ import { StyleComponent } from './components/style/style.component';
 
     MaterialModule,
     FormsModule,
-<<<<<<< Updated upstream
-    AngularFireModule.initializeApp(environment),
-=======
+
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
->>>>>>> Stashed changes
-    AngularFirestoreModule
-
-  
-   // AngularFireModule.initializeApp(environment),
-    //AngularFirestoreModule
-
+    AngularFirestoreModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
 
   ],
-  providers: [AuthService],
+  providers: [AuthService,TranslateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

@@ -1,26 +1,39 @@
-<div >
+<div>
   <mat-toolbar>
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Local palette</span>
-      <span class="example-spacer"></span>
+      <span><a routerLink="/home"> Local palette</a> </span>
+     
+      <span class="example-spacer">
+        <!-- <span class="form-inline">
+          <select class="form-control" #selectedLang (change)="translate.switchLang(selectedLang.value)">
+            <option *ngFor="let language of translate.translate.getLangs()" [value]="language"
+            [selected]="language === translate.currentLang">
+            {{ language }}
+            </option>
+          </select>
+          </span> -->
+
+      </span>
       <div fxShow="true" fxHide.lt-md="true">
-        <a href="#" mat-button>Home</a>
-        <a routerLink="/kategori" mat-button>Kategori</a>
-        <a href="#" mat-button>Gallery</a>
+       
+        <a routerLink="/home" mat-button>{{'Home' | translate}}</a>
+        <a routerLink="/kategori" mat-button>{{'Category' | translate}}</a>
+        <a href="#" mat-button>{{'Gallery' | translate}}</a>
         <a href="#" mat-button>Testimonals</a>
-        <a href="#" mat-button>Contact us</a>
+        <a href="#" mat-button>{{'Contact Us' |translate}}</a>
+        
         <a href="#" mat-button>
-          <mat-icon>search</mat-icon>
+           <mat-icon>search</mat-icon>
         </a>
-        <div *ngIf="!auth.isLoggedIn"  >
-          <a routerLink ="/brukerDash" mat-button>  
+      
+        
+          <a  *ngIf="auth.isLoggedIn;" routerLink ="/brukerDash" mat-button>  
             <mat-icon >person</mat-icon>
           </a>
-  
-        </div>
+       
        
 
       </div>
