@@ -1,6 +1,5 @@
 import * as Leaflet from 'leaflet';
 
-
 const mapView = {
   coords: new Leaflet.LatLng(51.2538, -85.3232),
   zoom: 3

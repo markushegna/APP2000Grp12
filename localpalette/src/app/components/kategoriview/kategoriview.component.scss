@@ -1,0 +1,12 @@
+.infocards-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+
+  app-infocards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

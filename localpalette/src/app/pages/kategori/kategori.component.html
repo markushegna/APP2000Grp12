@@ -16,14 +16,16 @@
     </div>
   </div>
 
+  <div class="container-wrapper">
+      <div class="container" *ngFor="let typer of kategoriTab">
 
-  <div class="container" *ngFor="let typer of kategoriTab">
-
-    <div [routerLink]="['/kategori/', typer.id]" class="kategori-container">
-      <h3 class="kategori-tittel">{{typer.data.kategori}}</h3>
-    </div>
+        <div [routerLink]="['/kategori/', typer.id]" class="kategori-container">
+          <h3 class="kategori-tittel">{{typer.data.kategori}}</h3>
+        </div>
 
 
+      </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>
