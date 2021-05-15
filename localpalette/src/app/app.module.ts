@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./module/material/material.module";
 import { KategoriComponent } from './pages/kategori/kategori.component';
-
+import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
 
 import { AngularFireModule } from '@angular/fire';
 import {environment} from "../environments/environment";
@@ -26,7 +26,7 @@ import {RatingModule} from "primeng/rating";
 
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 import {AngularFireAuthModule} from "@angular/fire/auth";
-import {AuthService} from "../app/service/auth.service";
+import {AuthService} from "./service/auth.service";
 import {LoginComponent} from "./components/login/login.component"
 import {SignupComponent} from "./components/signup/signup.component"
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -41,6 +41,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { KategoriviewComponent } from './components/kategoriview/kategoriview.component';
+
 import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisorsalonger.component'
 
 @NgModule({
@@ -67,36 +68,46 @@ import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisors
   StyleComponent,
   TranslateComponent,
   FooterComponent,
+
+  HomeComponent,
+  UserAuthComponent,
+  FrisorsalongerComponent,
+
   KategoriviewComponent
+
   //InfocardsComponent,
   //KategoriComponent,
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule,
-
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
-
-    // AngularFireModule.initializeApp(environment),
-    //AngularFirestoreModule
+  KategoriviewComponent
 
   ],
+
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FormsModule,
+
+        AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        RatingModule,
+
+        // AngularFireModule.initializeApp(environment),
+        //AngularFirestoreModule
+
+    ],
+  providers: [AuthService,TranslateComponent],
+
   providers: [AuthService,TranslateComponent],  
   bootstrap: [AppComponent]
 })
