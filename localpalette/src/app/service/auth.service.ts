@@ -39,7 +39,7 @@ export class AuthService {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
         // etter bruker har loget inn den skal vidre til bruker dash
-        this.router.navigate(['home']);
+        this.router.navigate(['brukerDash']);
       });
       this.SetUserData(result.user);
     } catch (error) {
@@ -76,21 +76,21 @@ export class AuthService {
   // returnere   true hvis brukekr er loget inn   den skjekker om bruker er loget vet å hente data fra localstorage
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null) ? true : false;
+    return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
   // eller du kan loge inn direkte med google
   GoogleAuth() {
-    const provider1 = new firebase.auth.GoogleAuthProvider();
+    const googleprovider = new firebase.auth.GoogleAuthProvider();
 
-    return this.AuthLogin(provider1);
+    return this.AuthLogin(googleprovider);
   }
 
   // log in med twitter
 
   FacebookAuth(){
-    const provider= new firebase.auth.FacebookAuthProvider();
-    return this.AuthLogin(provider)
+    const faceprovider= new firebase.auth.FacebookAuthProvider();
+    return this.AuthLogin(faceprovider)
   }
 
   // funcksjon som tar imot  andre providre som facebook og google som må bekrefte bruker er eksister fra sin api
@@ -98,7 +98,7 @@ export class AuthService {
     try {
       const result = await this.afAuth.signInWithPopup(provider);
       this.ngZone.run(() => {
-        this.router.navigate(['home']);
+        this.router.navigate(['brukerDash']);
       });
       this.SetUserData(result.user);
     } catch (error) {

@@ -6,27 +6,14 @@
       </button>
       <span><a routerLink="/home"> Local palette</a> </span>
      
-      <span class="example-spacer">
-        <!-- <span class="form-inline">
-          <select class="form-control" #selectedLang (change)="translate.switchLang(selectedLang.value)">
-            <option *ngFor="let language of translate.translate.getLangs()" [value]="language"
-            [selected]="language === translate.currentLang">
-            {{ language }}
-            </option>
-          </select>
-          </span> -->
-
-      </span>
+      <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
 
-       
         <a routerLink="/home" mat-button>{{'Home' | translate}}</a>
         <a routerLink="/kategori" mat-button>{{'Category' | translate}}</a>
         <a href="#" mat-button>{{'Gallery' | translate}}</a>
 
-        <a routerLink="/" mat-button>Home</a>
-        <a routerLink="/kategori" mat-button>Kategori</a>
-        <a href="#" mat-button>Gallery</a>
+       
 
         <a href="#" mat-button>Testimonals</a>
         <a href="#" mat-button>{{'Contact Us' |translate}}</a>
@@ -34,15 +21,12 @@
         <a href="#" mat-button>
            <mat-icon>search</mat-icon>
         </a>
-      
+       
         
-          <a  *ngIf="auth.isLoggedIn;" routerLink ="/brukerDash" mat-button>  
+          <a  *ngIf="auth.userData as user" routerLink ="/brukerDash" mat-button>  
             <mat-icon >person</mat-icon>
           </a>
-       
-       
-
-      </div>
+            </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -64,8 +48,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
-      <section class="hero">
-      </section>
+
 
     </mat-sidenav-content>
   </mat-sidenav-container>

@@ -32,9 +32,9 @@ import {KategoriviewComponent} from "./components/kategoriview/kategoriview.comp
 import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
 
 const routes: Routes = [
-
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path:'',
+    path:'home',
     component: HomeComponent
   },
 
@@ -62,7 +62,7 @@ const routes: Routes = [
     component: RegistreringComponent
   },
   {
-    path:'login',
+    path:'login', 
     component:LoginComponent
   },
   {
