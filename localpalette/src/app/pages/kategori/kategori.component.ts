@@ -21,6 +21,7 @@ export class KategoriComponent implements OnInit {
   test: object;
   kategoriTab: Array<object>;
   kategori$;
+
   constructor(private katService: KategoriService, private route: ActivatedRoute, private afs: AngularFirestore, private router: Router) { }
 
   ngOnInit(): void {
@@ -40,8 +41,4 @@ export class KategoriComponent implements OnInit {
   clicked(searchInput: HTMLInputElement) {
     console.log(searchInput);
   }
-
-
-
-
-  }
+}

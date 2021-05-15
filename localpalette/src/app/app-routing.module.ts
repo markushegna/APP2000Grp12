@@ -17,7 +17,7 @@ import{NavbarComponent}  from "./components/navbar/navbar.component"
 import {RestauranterComponent} from "./pages/kategori/restauranter/restauranter.component";
 import {RegistreringComponent} from "./pages/kategori/registrering/registrering.component";
 
-
+import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
 
 import { LoginComponent } from './components/login/login.component';
 import {UserAuthComponent} from "./components/user-auth/user-auth.component"
@@ -28,7 +28,6 @@ import {AuthGuard} from './shared/guard/auth.guard';
 
 import { TranslateComponent } from './components/translate/translate.component';
 
-import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
 import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
 
 const routes: Routes = [
@@ -50,13 +49,10 @@ const routes: Routes = [
 
 
   {
-    path: 'kategori/:id',
-    component: KategoriviewComponent
-  },
 
-
-
-
+  path: 'kategori/:id',
+  component: KategoriviewComponent
+},
   {
     path: 'registrering',
     component: RegistreringComponent
@@ -108,7 +104,7 @@ const routes: Routes = [
 //   }
 
 
-  
+
 // ];
 
 

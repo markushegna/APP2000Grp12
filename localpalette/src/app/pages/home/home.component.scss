@@ -84,12 +84,9 @@ nav ul {
 
 .hero {
     min-height: 90vh;
-    background: linear-gradient(rgba(94, 91, 64, 0.8), transparent),
-      url("../home/Untitled-1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: white;
+  background-size: cover;
+  background: linear-gradient(rgba(94, 91, 64, 0.8), transparent) no-repeat center;
+  color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,8 +96,8 @@ nav ul {
   .hero h3 {
     padding: 5rem;
   }
-  
-  
+
+
 
 
 @media screen and (max-width: 932px) {
