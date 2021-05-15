@@ -1,83 +1,80 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from "./module/material/material.module";
-import { KategoriComponent } from './pages/kategori/kategori.component';
-import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
+import { AppRoutingModule} from './app-routing.module';
 
-import { AngularFireModule } from '@angular/fire';
-import {environment} from "../environments/environment";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-import {InfocardsComponent} from "./components/infocards/infocards.component";
-import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
-import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
-
-
-import { FormsModule } from '@angular/forms';
+// Hovedkomponenter
 import {NavbarComponent} from "./components/navbar/navbar.component"
 import {HomeComponent} from  "./pages/home/home.component"
+import { FooterComponent } from './components/footer/footer.component';
 
+import { NgModule } from '@angular/core';
+import {environment} from "../environments/environment";
+
+import {MaterialModule} from "./module/material/material.module";
+import { FormsModule } from '@angular/forms';
 import {RatingModule} from "primeng/rating";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
+// Angular Firestore
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {AuthService} from "./service/auth.service";
+
+// Login, registrering og authentication
 import {LoginComponent} from "./components/login/login.component"
 import {SignupComponent} from "./components/signup/signup.component"
+import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
+import {UserAuthComponent} from "./components/user-auth/user-auth.component";
 import { StyleComponent } from './components/style/style.component';
 
-import { TranslateComponent } from './components/translate/translate.component';
+// Kategori og restaurantviews
+import { KategoriComponent } from './pages/kategori/kategori.component';
+import {InfocardsComponent} from "./components/infocards/infocards.component";
+import { RestauranterComponent } from './pages/kategori/restauranter/restauranter.component';
+import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
+import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisorsalonger.component';
+import { KategoriviewComponent } from './components/kategoriview/kategoriview.component';
 
+// Oversettelse
+import { TranslateComponent } from './components/translate/translate.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from './components/footer/footer.component';
 
-import { KategoriviewComponent } from './components/kategoriview/kategoriview.component';
-
-import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisorsalonger.component'
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    NavbarComponent,
     HomeComponent,
+
+    // Hovedkompoenter (navbar/footer)
+    NavbarComponent,
+    FooterComponent,
+
+    // Views av kategorier og bedrifter
     InfocardsComponent,
     KategoriComponent,
     RestauranterComponent,
-    RegistreringComponent,
     RestaurantViewComponent,
+    FrisorsalongerComponent,
+    KategoriviewComponent,
 
+    //Login og registrering + styling
+    LoginComponent,
+    RegistreringComponent,
+    ForgotPasswordComponent,
+    SignupComponent,
+    UserAuthComponent,
+    BrukerDashComponent,
+    StyleComponent,
 
-  HomeComponent,
-  LoginComponent,
-  
-  HomeComponent,
-
-  ForgotPasswordComponent,
-  SignupComponent,
-  BrukerDashComponent,
-  StyleComponent,
-  TranslateComponent,
-  FooterComponent,
-
-  HomeComponent,
-  UserAuthComponent,
-  FrisorsalongerComponent,
-
-  KategoriviewComponent
-
-  //InfocardsComponent,
-  //KategoriComponent,
-  KategoriviewComponent
+    // Oversettelse
+    TranslateComponent
 
   ],
 
@@ -88,11 +85,12 @@ import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisors
         BrowserAnimationsModule,
         MaterialModule,
         FormsModule,
-
         AngularFireAuthModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule,
         HttpClientModule,
+        RatingModule,
+
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -100,15 +98,10 @@ import { FrisorsalongerComponent } from './pages/kategori/frisorsalonger/frisors
                 deps: [HttpClient]
             }
         }),
-        RatingModule,
 
-        // AngularFireModule.initializeApp(environment),
-        //AngularFirestoreModule
 
     ],
   providers: [AuthService,TranslateComponent],
-
-  providers: [AuthService,TranslateComponent],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
