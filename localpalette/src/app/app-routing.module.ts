@@ -4,31 +4,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
-import {InfocardsComponent} from "./components/infocards/infocards.component";
+
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
-import {FormsModule} from "@angular/forms";
-import {RatingModule} from "primeng/rating";
-import {MatCardModule} from "@angular/material/card";
-import {MatIconModule} from "@angular/material/icon";
+
 
 import {KategoriComponent} from "./pages/kategori/kategori.component";
 
-import{NavbarComponent}  from "./components/navbar/navbar.component"
-import {RestauranterComponent} from "./pages/kategori/restauranter/restauranter.component";
 import {RegistreringComponent} from "./pages/kategori/registrering/registrering.component";
 
 import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
 
 import { LoginComponent } from './components/login/login.component';
-import {UserAuthComponent} from "./components/user-auth/user-auth.component"
+
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
 
-import { TranslateComponent } from './components/translate/translate.component';
-
-import {FrisorsalongerComponent} from "./pages/kategori/frisorsalonger/frisorsalonger.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,29 +28,24 @@ const routes: Routes = [
     path:'home',
     component: HomeComponent
   },
-
   {
     path:'restaurantView',
     component: RestaurantViewComponent
   },
-
   {
     path: 'kategori',
     component: KategoriComponent
   },
-
-
   {
-
   path: 'kategori/:id',
   component: KategoriviewComponent
-},
+  },
   {
     path: 'registrering',
     component: RegistreringComponent
   },
   {
-    path:'login', 
+    path:'login',
     component:LoginComponent
   },
   {
@@ -72,8 +59,6 @@ const routes: Routes = [
   {
     path:"brukerDash",component:BrukerDashComponent,canActivate: [AuthGuard]
   }
-
-
 ];
 
 

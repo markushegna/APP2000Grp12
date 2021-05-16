@@ -5,25 +5,26 @@
         <mat-icon>menu</mat-icon>
       </button>
       <span><a routerLink="/home"> Local palette</a> </span>
-     
+
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
 
         <a routerLink="/home" mat-button>{{'Home' | translate}}</a>
         <a routerLink="/kategori" mat-button>{{'Category' | translate}}</a>
+        <a routerLink="/registrering" mat-button>{{'Register' | translate}}</a>
         <a href="#" mat-button>{{'Gallery' | translate}}</a>
 
-       
+
 
         <a href="#" mat-button>Testimonals</a>
         <a href="#" mat-button>{{'Contact Us' |translate}}</a>
-        
+
         <a href="#" mat-button>
            <mat-icon>search</mat-icon>
         </a>
-       
-        
-          <a  *ngIf="auth.userData as user" routerLink ="/brukerDash" mat-button>  
+
+
+          <a  *ngIf="auth.userData as user" routerLink ="/brukerDash" mat-button>
             <mat-icon >person</mat-icon>
           </a>
             </div>

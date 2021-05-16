@@ -1,0 +1,32 @@
+
+.content {
+  height: 100%;
+  margin: 5vh 0 0 1vh;
+  display: flex;
+  flex-direction: column;
+  //background-image: url("./src/assets/images/background-registrering-bedrift.jpg");
+
+  >a {
+    margin: 2vh 0 2vh 0;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .stepper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+
+    mat-vertical-stepper {
+      height: 70vh;
+    }
+
+    img {
+      height: 35%;
+      margin-left: 15vh;
+      width: auto;
+    }
+  }
+}

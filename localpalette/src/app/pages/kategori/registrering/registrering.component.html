@@ -1,6 +1,107 @@
-<h1>Registrering</h1>
-<a routerLink="/kategori">Gå tilbake</a>
-<h1 class="display-4">register Resturant </h1>
+<div class="content">
+  <h1>{{'Registrer bedrift' | translate}}</h1>
+  <a routerLink="/kategori">{{'Gå tilbake' | translate}}</a>
+  <div class="stepper">
+
+    <mat-vertical-stepper [linear]="isLinear" #stepper="matVerticalStepper">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>{{'Bedriftens navn' | translate}}</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="{{'Bedriftens navn' | translate}}" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>{{'Bedriftens adresse' | translate}}</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="{{'Adresse' | translate}}" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>{{'Mobilnummer' | translate}}</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Mobil" formControlName="thirdCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup">
+          <ng-template matStepLabel>{{'Åpningstider hverdager' | translate}}</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="{{'Åpningstid' | translate}}" formControlName="fourthCtrl" required>
+            <mat-hint>{{'Format: TT:MM - TT:MM' | translate}}</mat-hint>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="fifthFormGroup">
+        <form [formGroup]="fifthFormGroup">
+          <ng-template matStepLabel>{{'Åpningstider helger / helligdager' | translate}}</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Åpningstid" formControlName="fifthCtrl" required>
+            <mat-hint>{{'Format: TT:MM - TT:MM' | translate}}</mat-hint>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>{{'Kategori' | translate}}</ng-template>
+          <mat-form-field  formControlName="sixthCtrl" required>
+            <mat-select [(value)]="selectedValue">
+              <mat-option value="restaurant">Restaurant</mat-option>
+              <mat-option value="matbutikk">Matbutikk</mat-option>
+              <mat-option value="frisør">Frisør</mat-option>
+              <mat-option value="bakeri">Bakeri</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>{{'Ferdig' | translate}}</ng-template>
+        {{'Registrering fullført!' | translate}}
+        <div>
+          <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+          <button mat-button (click)="lagreBedrift()">{{'Lagre' | translate}}</button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+
+    <div class="picture-holder">
+      <img src="./assets/images/restaurant.jpg" alt="Testbilde">
+    </div>
+  </div>
+
+</div>
+
+
+
 <!--<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
   <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
   <div class="form-group">

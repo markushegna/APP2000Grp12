@@ -11,5 +11,22 @@
     "Category": " Category",
     "Time to order food" : "Time to order food",
     "Find restaurants in your area":"Find restaurants in your area",
-    "Order food":"Order food" 
+    "Order food":"Order food",
+
+
+  "Registrer bedrift": "Register company",
+  "Gå tilbake": "Go back",
+  "Bedriftens navn": "Company name",
+  "Neste": "Next",
+  "Tilbake": "Back",
+  "Bedriftens adresse": "Company address",
+  "Adresse": "Address",
+  "Mobilnummer": "Mobile number",
+  "Åpningstider hverdag": "Opening hours weekdays",
+  "Åpningstider helger / helligdager": "Opening hours weekends/holidays",
+  "Format: TT:MM - TT:MM": "Format HH:MM - HH:MM",
+  "Kategori": "Category",
+  "Lagre": "Save",
+  "Ferdig": "Done",
+  "Registrering fullført!": "Registration complete!"
 }

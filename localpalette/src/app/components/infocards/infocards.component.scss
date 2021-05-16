@@ -1,20 +1,20 @@
 .content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   margin-left: 1%;
   margin-top: 1%;
+  flex-wrap: wrap;
 
   .cards {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 30px 10px 10px 10px;
+    width: 30%;
 
     .restaurants {
-      max-width: 400px;
       margin-right: 1%;
-
-
-
     }
   }
 }
