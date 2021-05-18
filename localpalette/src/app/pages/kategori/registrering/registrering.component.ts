@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IRegistreringsform} from "../../../service/IRegistreringsform";
 import {AngularFirestore} from "@angular/fire/firestore";
+import {KategoriService} from "../../../service/kategori.service";
 
 
 @Component({
@@ -17,8 +18,9 @@ export class RegistreringComponent implements OnInit {
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
   selectedValue: String;
+  kategoriTabell: Array<object>
 
-  constructor(private _formBuilder: FormBuilder, public db :AngularFirestore) { }
+  constructor(private katService: KategoriService, private _formBuilder: FormBuilder, public db: AngularFirestore) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -36,20 +38,15 @@ export class RegistreringComponent implements OnInit {
     this.fifthFormGroup = this._formBuilder.group({
       fifthCtrl: ['', Validators.required]
     });
-  }
-  /*getFormInfo(){
-    console.log("getFormInfo kallet")
-    console.log(this.firstFormGroup.value);
-    const data = {
-      forsteVerdi: this.firstFormGroup.value,
-      andreVerdi: this.secondFormGroup.value,
 
-    }
-    this.lagreBedrift(data);
-  }*/
+    this.katService.hentKategorier().subscribe(kategorier=>{
+      this.kategoriTabell = kategorier;
+    })
+  }
 
   lagreBedrift(): void {
     console.log("bedrift lagret")
+
 
     const data: IRegistreringsform = {
       name: this.firstFormGroup.value.firstCtrl,
@@ -59,7 +56,14 @@ export class RegistreringComponent implements OnInit {
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
       kategori: this.selectedValue.valueOf()
     }
+
+    const kategori = data.kategori.valueOf();
+    console.log(this.db.collection('kategorier').doc(kategori.id));
+
     console.log(data);
-    const dataer = this.db.collection('review').doc(this.db.createId()).set(data);
+
+    this.db.collection('kategorier').doc().collection(kategori).doc(this.db.createId()).set(data)
+      .then(r => console.log(r));
   }
+
 }

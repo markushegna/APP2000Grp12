@@ -4,6 +4,7 @@
   <div class="stepper">
 
     <mat-vertical-stepper [linear]="isLinear" #stepper="matVerticalStepper">
+
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>{{'Bedriftens navn' | translate}}</ng-template>
@@ -69,12 +70,12 @@
         <form>
           <ng-template matStepLabel>{{'Kategori' | translate}}</ng-template>
           <mat-form-field  formControlName="sixthCtrl" required>
-            <mat-select [(value)]="selectedValue">
-              <mat-option value="restaurant">Restaurant</mat-option>
-              <mat-option value="matbutikk">Matbutikk</mat-option>
-              <mat-option value="frisør">Frisør</mat-option>
-              <mat-option value="bakeri">Bakeri</mat-option>
+            <mat-select [(value)]="selectedValue"  placeholder = "Velg kategori">
+              <div class="" *ngFor="let kat of kategoriTabell">
+              <mat-option value={{kat.data.kategori}} >{{kat.data.kategori}}</mat-option>
+              </div>
             </mat-select>
+
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
@@ -84,6 +85,7 @@
       </mat-step>
 
       <mat-step>
+
         <ng-template matStepLabel>{{'Ferdig' | translate}}</ng-template>
         {{'Registrering fullført!' | translate}}
         <div>
@@ -91,13 +93,13 @@
           <button mat-button (click)="lagreBedrift()">{{'Lagre' | translate}}</button>
         </div>
       </mat-step>
+
     </mat-vertical-stepper>
 
     <div class="picture-holder">
       <img src="./assets/images/restaurant.jpg" alt="Testbilde">
     </div>
   </div>
-
 </div>
 
 
