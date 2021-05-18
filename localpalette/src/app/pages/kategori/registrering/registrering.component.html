@@ -66,13 +66,14 @@
           </div>
         </form>
       </mat-step>
+      <div class="">
       <mat-step>
         <form>
           <ng-template matStepLabel>{{'Kategori' | translate}}</ng-template>
           <mat-form-field  formControlName="sixthCtrl" required>
-            <mat-select [(value)]="selectedValue"  placeholder = "Velg kategori">
-              <div class="" *ngFor="let kat of kategoriTabell">
-              <mat-option value={{kat.data.kategori}} >{{kat.data.kategori}}</mat-option>
+            <mat-select [(value)]="selectedValue" placeholder = "Velg kategori">
+              <div class="" *ngFor="let kat of kategoriTabell" >
+              <mat-option value={{kat.id}} >{{kat.data.kategori}}</mat-option>
               </div>
             </mat-select>
 
@@ -83,7 +84,6 @@
           </div>
         </form>
       </mat-step>
-
       <mat-step>
 
         <ng-template matStepLabel>{{'Ferdig' | translate}}</ng-template>
@@ -93,7 +93,7 @@
           <button mat-button (click)="lagreBedrift()">{{'Lagre' | translate}}</button>
         </div>
       </mat-step>
-
+      </div>
     </mat-vertical-stepper>
 
     <div class="picture-holder">

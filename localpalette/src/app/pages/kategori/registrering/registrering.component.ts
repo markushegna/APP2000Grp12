@@ -17,8 +17,9 @@ export class RegistreringComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
-  selectedValue: String;
+  selectedValue: string;
   kategoriTabell: Array<object>
+  id: string = "";
 
   constructor(private katService: KategoriService, private _formBuilder: FormBuilder, public db: AngularFirestore) { }
 
@@ -56,14 +57,15 @@ export class RegistreringComponent implements OnInit {
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
       kategori: this.selectedValue.valueOf()
     }
-
-    const kategori = data.kategori.valueOf();
-    console.log(this.db.collection('kategorier').doc(kategori.id));
-
+    this.id = this.selectedValue.valueOf();
     console.log(data);
 
-    this.db.collection('kategorier').doc().collection(kategori).doc(this.db.createId()).set(data)
+    this.db.collection('kategorier').doc(this.selectedValue.valueOf()).collection('yrke').doc(this.db.createId()).set(data)
       .then(r => console.log(r));
   }
 
+  selectChange(event: any) {
+    this.id = event.target.value;
+    console.log(event.target.value);
+  }
 }
