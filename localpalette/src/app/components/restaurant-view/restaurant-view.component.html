@@ -1,10 +1,10 @@
 <div class="content">
   <div class="content-header">
     <h1>RESTAURANT 1</h1>
-
-   <p-rating ngModel="val" readonly="true" stars="5"></p-rating>
     <div class="headerInfo">
       <div class="meta-content">
+      <app-bruker-rating [bedriftId]="bedrift" [brukerId]="bruker"></app-bruker-rating>
+
         <mat-icon>rate_review</mat-icon>
         <h3>100 reviews</h3>
         <mat-icon>location_on</mat-icon>
