@@ -4,5 +4,6 @@ export interface IRegistreringsform {
   mobile: string;
   åpningsTiderHverdag: string;
   åpningsTiderHelg: string;
-  kategori: string;
+  bedriftId: string;
+  omOss: string;
 }

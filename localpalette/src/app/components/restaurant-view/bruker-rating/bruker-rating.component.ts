@@ -24,7 +24,7 @@ export class BrukerRatingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.kId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.kId = this.activatedRoute.snapshot.paramMap.get('bedid');
     this.bId = this.afs.collection('yrke').doc(this.kId).ref.id;
     this.stjerner = this.stjerneService.getBedriftStjerner(this.bId);
 
