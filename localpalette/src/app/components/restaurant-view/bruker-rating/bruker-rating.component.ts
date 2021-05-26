@@ -18,6 +18,7 @@ export class BrukerRatingComponent implements OnInit {
   avgRating: Observable<any>;
   kId: string;
   brId: string;
+  bedriftsNavn: string;
 
   constructor(private afs: AngularFirestore, private stjerneService: StjerneService, private activatedRoute: ActivatedRoute) {
   }
@@ -34,13 +35,18 @@ export class BrukerRatingComponent implements OnInit {
   }
 
   stjerneHandler(value) {
-    this.stjerneService.setStjerne(BrukerRatingComponent.getUid(), this.bId, value).then(r => console.log(r))
+
+    this.stjerneService.setStjerne(
+      //BrukerRatingComponent.getUid()
+      'kimaa', this.bId, value).then(r => console.log(r))
   }
 
-  private static getUid() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if(user !== null && user.emailVerified !== false) {
-      return user.uid;
-    }
-  }
+  /* private static getUid() {
+     const user = JSON.parse(localStorage.getItem('user'));
+     if(user !== null && user.emailVerified !== false) {
+       return user.uid;
+     }
+   }*/
+
+
 }

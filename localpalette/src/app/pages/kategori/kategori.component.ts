@@ -25,8 +25,10 @@ export class KategoriComponent implements OnInit {
   constructor(private katService: KategoriService, private route: ActivatedRoute, private afs: AngularFirestore, private router: Router) { }
 
   ngOnInit(): void {
+
     this.katService.hentKategorier().subscribe(value =>{
       this.kategoriTab = value;
+
       console.log(this.kategoriTab)
     });
 
