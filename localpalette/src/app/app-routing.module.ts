@@ -25,7 +25,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'kategori/:id/bedrifter/:id',
+    path:'kategori/:katid/bedrifter/:bedid',
     component: RestaurantViewComponent
   },
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
     component: KategoriComponent
   },
   {
-    path:'kategori/:id',
+    path:'kategori/:katid',
     component: InfocardsComponent
   },
   {
