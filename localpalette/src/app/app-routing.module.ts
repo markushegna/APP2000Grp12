@@ -7,20 +7,16 @@ import {HomeComponent} from "./pages/home/home.component";
 
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 
-
 import {KategoriComponent} from "./pages/kategori/kategori.component";
 
 import {RegistreringComponent} from "./pages/kategori/registrering/registrering.component";
-
 import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
-
 import { LoginComponent } from './components/login/login.component';
-
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
-
+import {InfocardsComponent} from "./components/infocards/infocards.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,7 +25,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'restaurantView',
+    path:'kategori/:id/bedrifter/:id',
     component: RestaurantViewComponent
   },
   {
@@ -37,8 +33,8 @@ const routes: Routes = [
     component: KategoriComponent
   },
   {
-  path: 'kategori/:id',
-  component: KategoriviewComponent
+    path:'kategori/:id',
+    component: InfocardsComponent
   },
   {
     path: 'registrering',
@@ -53,13 +49,19 @@ const routes: Routes = [
     component:SignupComponent
   },
   {
-      path:'forgot-password',
-      component:ForgotPasswordComponent
+    path:'forgot-password',
+    component:ForgotPasswordComponent
   },
   {
     path:"brukerDash",component:BrukerDashComponent,canActivate: [AuthGuard]
   }
 ];
+
+
+
+
+
+
 
 
 // @NgModule({

@@ -3,7 +3,7 @@
 
 <h3>Review</h3>
 <div  class="" *ngFor="let stjerne of stjerner | async">
-  {{stjerne.getBrukerId()}} gav {{stjerne.getBedriftId()}} {{stjerne.value}} stjerner
+  {{stjerne.brukerId}} gav {{stjerne.bedriftId}} {{stjerne.value}} stjerner
 </div>
 
 <fieldset class="rating">
@@ -11,13 +11,13 @@
     <input
       (click)="stjerneHandler(num)"
       [id]="'star' + num"
-      [value]="num"
+      [value]="num-0.5"
       name ="rating"
       type="radio"
     />
     <label class="full" [for] ="'star' + num"></label>
     <input
-      (click)="stjerneHandler(num)"
+      (click)="stjerneHandler(num - 0.5)"
       [value]="num-0.5"
       [id] ="'halfstar' + num"
       name="rating"

@@ -28,7 +28,7 @@ import {SignupComponent} from "./components/signup/signup.component"
 import { RegistreringComponent } from './pages/kategori/registrering/registrering.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BrukerDashComponent } from './components/bruker-dash/bruker-dash.component';
-import {UserAuthComponent} from "./components/user-auth/user-auth.component";
+
 import { StyleComponent } from './components/style/style.component';
 
 // Kategori og restaurantviews
@@ -44,13 +44,15 @@ import { TranslateComponent } from './components/translate/translate.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {BrukerRatingComponent} from "./components/restaurant-view/bruker-rating/bruker-rating.component";
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    BrukerRatingComponent,
     HomeComponent,
 
     // Hovedkompoenter (navbar/footer)
@@ -70,12 +72,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     RegistreringComponent,
     ForgotPasswordComponent,
     SignupComponent,
-    UserAuthComponent,
     BrukerDashComponent,
     StyleComponent,
 
     // Oversettelse
-    TranslateComponent
+    TranslateComponent,
 
   ],
 

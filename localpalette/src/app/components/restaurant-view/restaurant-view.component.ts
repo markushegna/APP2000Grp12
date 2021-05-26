@@ -37,6 +37,7 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
     this.bedriftDoc = this.afs.collection('yrke').doc(docID);
     this.bedrift = this.bedriftDoc.valueChanges();
     this.bruker = this.brukerDoc.valueChanges();
+
   }
   getBedriftId(){
     return this.bedriftDoc.ref.id;
