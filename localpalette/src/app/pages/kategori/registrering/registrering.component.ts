@@ -17,6 +17,7 @@ export class RegistreringComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
+  sixthFormGroup: FormGroup;
   selectedValue: string;
   kategoriTabell: Array<object>
   id: string = "";
@@ -39,6 +40,9 @@ export class RegistreringComponent implements OnInit {
     this.fifthFormGroup = this._formBuilder.group({
       fifthCtrl: ['', Validators.required]
     });
+    this.sixthFormGroup = this._formBuilder.group({
+      sixthCtrl: ['', Validators.required]
+    });
 
     this.katService.hentKategorier().subscribe(kategorier=>{
       this.kategoriTabell = kategorier;
@@ -48,19 +52,19 @@ export class RegistreringComponent implements OnInit {
   lagreBedrift(): void {
     console.log("bedrift lagret")
 
-
-    const data: IRegistreringsform = {
+    const bedriftInfo: IRegistreringsform = {
       name: this.firstFormGroup.value.firstCtrl,
       location: this.secondFormGroup.value.secondCtrl,
       mobile: this.thirdFormGroup.value.thirdCtrl,
       åpningsTiderHverdag: this.fourthFormGroup.value.fourthCtrl,
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
-      kategori: this.selectedValue.valueOf()
+      omOss: this.sixthFormGroup.value.sixthCtrl,
+      bedriftId: this.db.createId()
     }
     this.id = this.selectedValue.valueOf();
-    console.log(data);
+    console.log(bedriftInfo);
 
-    this.db.collection('kategorier').doc(this.selectedValue.valueOf()).collection('yrke').doc(this.db.createId()).set(data)
+    this.db.collection('kategorier').doc(this.selectedValue.valueOf()).collection('yrke').doc(bedriftInfo.bedriftId).set(bedriftInfo)
       .then(r => console.log(r));
   }
 

@@ -27,17 +27,52 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
   bruker: Observable<any>;
   bedrift: Observable<any>
   docId: string;
+  bedriftId: string;
+  name:string;
+  adresse: string;
+  mobilnummer: string;
+  apningstidHverdag:string
+  apningsHelg: string;
+  bedriftnavn : string;
+  katId:string;
+  omOss: string;
 
   constructor(private afs: AngularFirestore, private stjerneService: StjerneService, private bedriftService: BedriftService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.brukerDoc = this.afs.collection('users').doc('msRVGfkdhtNjvCcYBLd3YwcX0hB3');
-    const docID = this.activatedRoute.snapshot.paramMap.get('id');
+    const docID = this.activatedRoute.snapshot.paramMap.get('bedid');
+    console.log(docID)
+    this.katId=this.activatedRoute.snapshot.params["katid"]
+    this.bedriftnavn=this.activatedRoute.snapshot.params["bedid"]
     this.bedriftDoc = this.afs.collection('yrke').doc(docID);
     this.bedrift = this.bedriftDoc.valueChanges();
     this.bruker = this.brukerDoc.valueChanges();
+    console.log(this.katId)
+    this.afs.collection('kategorier').doc(this.katId).collection('yrke')
+      .ref
+      .where('name', '==', docID)
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach(doc => {
+          snapshot.docs.forEach(doc => {
+            this.adresse = doc.data().location;
+            this.mobilnummer = doc.data().mobile;
+            this.apningstidHverdag = doc.data().åpningsTiderHverdag;
+            this.apningsHelg = doc.data().åpningsTiderHelg;
+            this.omOss = doc.data().omOss;
+            console.log(this.adresse)
+            //console.log("infoTab: " + this.infoTabell);
 
+            //this.infoTabell.replace('"', " ");
+
+
+            /* this.splittedInfo = JSON.parse("[" + this.infoTabell + "]");
+             console.log(this.splittedInfo);*/
+          })
+        })
+      })
   }
   getBedriftId(){
     return this.bedriftDoc.ref.id;
