@@ -6,10 +6,11 @@ import {StjerneService} from "../../service/stjerne.service";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {BedriftService} from "../../service/bedriftservice.service";
 import {ActivatedRoute} from "@angular/router";
+import {LatLng, latLng} from "leaflet";
 
 const mapView = {
-  coords: new Leaflet.LatLng(59.41310, 9.06370),
-  name: 'Popup laget'
+  //coords: this.getLocation(),
+  name: 'Her er du'
 };
 
 @Component({
@@ -63,13 +64,6 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
             this.apningsHelg = doc.data().åpningsTiderHelg;
             this.omOss = doc.data().omOss;
             console.log(this.adresse)
-            //console.log("infoTab: " + this.infoTabell);
-
-            //this.infoTabell.replace('"', " ");
-
-
-            /* this.splittedInfo = JSON.parse("[" + this.infoTabell + "]");
-             console.log(this.splittedInfo);*/
           })
         })
       })
@@ -81,24 +75,21 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
   getBrukerId(){
     return this.brukerDoc.ref.id;
   }
-/*
-  rateBedrift(val: number) {
-    console.log(val)
-    this.stjerneService.setRating({
-      bedriftId: this.valgtBedriftsId,
-      ratingValue: val
-    })
-*/
-
-
-
-  //}
-
 
   ngAfterViewInit(): void {
     this.map = new LeafletMap('map');
-
-    this.map.setCoords(mapView.coords.lat, mapView.coords.lng, mapView.name);
+    const coords = this.getLocation()
+    //new LatLng(coords.lat, coords.lng);
+    this.map.setCoords(coords.lat, coords.lng, 'Her er du');
   }
 
+  getLocation(): any {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position);
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      console.log(lat, lng);
+      return new LatLng(lat, lng);
+    });
+  }
 }
