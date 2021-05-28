@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IRegistreringsform} from "../../../service/IRegistreringsform";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {KategoriService} from "../../../service/kategori.service";
+import * as Leaflet from "leaflet";
+import {LeafletMap} from "../../../components/restaurant-view/leaflet-map";
 
 
 @Component({
@@ -21,7 +23,9 @@ export class RegistreringComponent implements OnInit {
   selectedValue: string;
   kategoriTabell: Array<object>
   id: string = "";
-
+  lng: number;
+  lat: number;
+  coords: any;
   constructor(private katService: KategoriService, private _formBuilder: FormBuilder, public db: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -44,6 +48,17 @@ export class RegistreringComponent implements OnInit {
       sixthCtrl: ['', Validators.required]
     });
 
+    navigator.geolocation.getCurrentPosition(location =>{
+
+      this.lat = location.coords.latitude;
+      this.lng = location.coords.longitude;
+      const coords = location.coords;
+      const latLong = [coords.latitude, coords.longitude];
+      console.log(this.lat , this.lng, coords);
+
+    });
+
+
     this.katService.hentKategorier().subscribe(kategorier=>{
       this.kategoriTabell = kategorier;
     })
@@ -53,13 +68,15 @@ export class RegistreringComponent implements OnInit {
     console.log("bedrift lagret")
 
     const bedriftInfo: IRegistreringsform = {
+      lat: this.lat,
+      lng: this.lng,
       name: this.firstFormGroup.value.firstCtrl,
       location: this.secondFormGroup.value.secondCtrl,
       mobile: this.thirdFormGroup.value.thirdCtrl,
       åpningsTiderHverdag: this.fourthFormGroup.value.fourthCtrl,
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
       omOss: this.sixthFormGroup.value.sixthCtrl,
-      bedriftId: this.db.createId()
+      bedriftId: this.db.createId(),
     }
     this.id = this.selectedValue.valueOf();
     console.log(bedriftInfo);

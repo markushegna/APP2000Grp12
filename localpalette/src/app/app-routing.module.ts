@@ -1,5 +1,8 @@
 /*
 * @Author: Kim Andre
+* Denne modulen tar seg av routinga i heile webapplikasjonen
+* Man kan sette på id'er til pathen slik at man kan sende brukeren til et vist punkt.
+* Som en bedrift som man vil sjekke ut.
 * */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

@@ -20,26 +20,22 @@ export class KategoriComponent implements OnInit {
   kategori: string;
   test: object;
   kategoriTab: Array<object>;
-  kategori$;
 
-  constructor(private katService: KategoriService, private route: ActivatedRoute, private afs: AngularFirestore, private router: Router) { }
+  /*
+  * Tar inn KategoriServer og bruker metoden hentKategorier()
+  * */
+  constructor(private katService: KategoriService) { }
 
+
+  /*
+  * Eg subscriber på metoden hentkategorier for å observere informasjonen i databasen.
+  * Metoden vil aldri hente ut. Den vil bare mota informasjon basert på forandring i servicefila.
+  * */
   ngOnInit(): void {
+
     this.katService.hentKategorier().subscribe(value =>{
       this.kategoriTab = value;
       console.log(this.kategoriTab)
     });
-  }
-
-
-
-
-  searchFilter(searchInput:any) {
-    const val = searchInput.value;
-    console.log(val);
-  }
-
-  clicked(searchInput: HTMLInputElement) {
-    console.log(searchInput);
   }
 }

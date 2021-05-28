@@ -79,11 +79,13 @@
     }
 
     #map {
-      height: 30vh;
+      height: 50vh;
       display: flex;
       flex-direction: row;
       flex: 3;
+      width: 20vh;
       margin-right: 5vh;
+
     }
   }
 }

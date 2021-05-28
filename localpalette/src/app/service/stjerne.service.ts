@@ -1,39 +1,58 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
-import {map} from "rxjs/operators";
-import {IBedriftRating} from "./IBedriftRating";
+import {Observable} from "rxjs";
 
 export interface Stjerne {
   bedriftId: string
   brukerId: string
   value: number
 }
+
 @Injectable({
   providedIn: 'root'
 })
 export class StjerneService {
   docId: string;
+  avgRating: Observable<any>;
+  stjerner: Observable<any>;
+  value: number;
+  ratings;
 
   constructor(private afs: AngularFirestore) {
   }
 
-  getBrukerStjerner(brukerId){
+  getBrukerStjerner(brukerId) {
     const stjerneRef = this.afs.collection('review', ref =>
       ref.where('brukerId', '==', brukerId));
     return stjerneRef.valueChanges();
   }
 
-  getBedriftStjerner(bedriftId){
+  getBedriftStjerner(bedriftId) {
     const stjerneRef = this.afs.collection('review', ref =>
-    ref.where('bedriftId', '==', bedriftId));
+      ref.where('bedriftId', '==', bedriftId));
     return stjerneRef.valueChanges();
   }
 
-  setStjerne(brukerId, bedriftId, value){
-    const stjerne: Stjerne={bedriftId, brukerId, value};
-    const stjernePath = `review/${stjerne.brukerId}_${stjerne.bedriftId}`;
-    return this.afs.doc(stjernePath).set(stjerne);
-    console.log(value)
+  getBedriftStjerner1(bedriftId) {
+    const stjerneRef = this.afs.collection('review', ref =>
+      ref.where('bedriftId', '==', bedriftId));
+    return stjerneRef.valueChanges();
   }
 
+  setStjerne(brukerId, bedriftId, value) {
+    const stjerne: Stjerne = {bedriftId, brukerId, value};
+    const stjernePath = `review/${stjerne.brukerId}_${stjerne.bedriftId}`;
+    return this.afs.doc(stjernePath).set(stjerne);
+
+  }
+
+
+  getBedriftStjernerGroupQuery(name: Array<object>) {
+    console.log(name)
+    for (let i = 0; i < name.length; i++) {
+        let stjerneRef = this.afs.collection('review', ref =>
+          ref.where('bedriftId', '==', name[i].data.name));
+        return stjerneRef.valueChanges();
+    }
+  }
 }
