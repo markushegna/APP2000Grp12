@@ -116,7 +116,7 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
 
             const mapView = {
               coords: new Leaflet.LatLng(lat, lng),
-              name: `${lat} + ${lng}`
+              name: `${docID}`
             };
             this.map = new LeafletMap('map');
 
