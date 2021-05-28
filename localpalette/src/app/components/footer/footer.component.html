@@ -1,5 +1,5 @@
 <footer class="deneb_footer">
-	<div class="widget_wrapper" style="background-image: url(http://demo.tortoizthemes.com/deneb-html/deneb-ltr/assets/images/footer_bg.png);">
+	<div class="widget_wrapper" >
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 col-12">
@@ -7,7 +7,7 @@
 						<div class="widget_title">
 							<img src="assets/images/logo.png" class="img-fluid" alt="">
 						</div>
-						<p>Quisque orci nisl, viverra et sem ac, tincidunt egestas massa. Morbi est arcu, hendrerit ac vehicula condimentum, euismod nec tortor praesent consequat urna.</p>
+						<p>Ofte kan lokale bedrifter og restauranter komme litt i baksetet når det gjelder publisitet og muligheten til å vise seg fram. </p>
 						<ul class="social">
 							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -19,18 +19,19 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="widget widget_link">
 						<div class="widget_title">
-							<h4>Links</h4>
-						</div>
-						<span class="example-spacer">
-							<span class="form-inline">
-							  <select class="form-control" #selectedLang (change)="translate.switchLang(selectedLang.value)">
-								<option *ngFor="let language of translate.translate.getLangs()" [value]="language"
-								[selected]="language === translate.currentLang">
-								{{ language }}
-								</option>
-							  </select>
+							
+							<span class="example-spacer">
+								<span class="form-inline">
+								  <select class="form-control" #selectedLang (change)="translate.switchLang(selectedLang.value)">
+									<option *ngFor="let language of translate.translate.getLangs()" [value]="language"
+									[selected]="language === translate.currentLang">
+									{{ language }}
+									</option>
+								  </select>
+								  </span>
 							  </span>
-						  </span>
+						</div>
+						
 						<ul>
 							<li><a href="#">{{'About' | translate}}</a></li>
 							<li><a href="#">{{'Services' | translate}}</a></li>
