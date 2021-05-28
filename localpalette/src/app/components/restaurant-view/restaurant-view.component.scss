@@ -2,68 +2,56 @@
 .content {
   margin-top: 5vh;
   margin-left: 2vh;
-  height: 200vh;
+  height: 140vh;
   display: flex;
   flex-direction: column;
 
   .content-header {
     display: flex;
     flex-direction: column;
-    flex: 1;
 
     h1 {
       font-size: 50px;
     }
 
+    app-bruker-rating {
+      margin-top: 2vh;
+      padding: 1vh;
+      width: 22%;
+      border: 3px solid #FA7C91;
+    }
+
     .headerInfo {
       display: flex;
       flex-direction: row;
-      width: 100%;
+      width: 95vw;
       margin-top: 5vh;
 
       .meta-content {
-        width: 100%;
+        width: 70%;
         display: flex;
-        flex: 15;
         flex-direction: row;
-        justify-content: space-between;
+        border-bottom: 1vh solid #FA7C91;
       }
-
-      .save {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 40%;
-        padding-right: 2%;
-        flex: 2;
 
         h3 {
-          padding-left: 15%;
+          padding-right: 7%;
+          padding-left: 2%;
         }
-      }
+
     }
   }
 
   .images {
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    margin-top: 5vh;
 
     img {
       width: 70%;
     }
   }
 
-  #image-text {
-    display: flex;
-    justify-content: center;
-    background-color: #15CD72;
-    margin: 0 35% 0 35%;
-    padding: 3vh;
-    border-radius: 1vh;
-    font-size: xxx-large;
-    // Hvordan få resturantnavne til å overlappe bildet(ne) på en fin måte?
-  }
 
   .content-main {
     margin-top: 5vh;
@@ -81,25 +69,113 @@
 
       h3 {
         font-size: 30px;
-        margin-bottom: 5vh;
+        margin-bottom: 3vh;
+      }
+      p {
+        font-size: 20px;
+        line-height: 35px;
       }
 
     }
 
     #map {
-      height: 40vh;
+      height: 50vh;
       display: flex;
       flex-direction: row;
       flex: 3;
+      width: 20vh;
       margin-right: 5vh;
+
+    }
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 764px) {
+  .content {
+    height: 130vh;
+    flex-direction: column;
+
+    .content-header {
+      flex-direction: column;
+
+      app-bruker-rating {
+        width: 27%;
+      }
+
+      .headerInfo {
+        flex-direction: column;
+        margin-top: 2vh;
+
+        .meta-content {
+          margin-top: 1vh;
+          flex-direction: column;
+
+          h3 {
+            margin-left: -2%;
+          }
+        }
+      }
+    }
+    .images {
+      display: flex;
+      justify-content: center;
+      margin-top: 3vh;
+
+      img {
+        width: 93%;
+        margin-right: 5vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 764px) and (min-width: 100px) {
+  .content {
+    height: 160vh;
+    flex-direction: column;
+
+    .content-header {
+      flex-direction: column;
+
+      app-bruker-rating {
+        width: 70%;
+      }
+
+      .headerInfo {
+        flex-direction: column;
+        margin-top: 3vh;
+
+        .meta-content {
+          flex-direction: column;
+
+          h3 {
+            margin-left: -2%
+          }
+        }
+      }
     }
 
-    /*.map-frame {
-      border: 2px solid black;
-      height: 80%;*/
+    .images {
+      display: flex;
+      justify-content: center;
+      margin-top: 3vh;
 
+      img {
+        width: 89%;
+        margin-right: 5vh;
+      }
+    }
+    .content-main {
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
 
+      #map {
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
 
+      }
+    }
   }
-
 }

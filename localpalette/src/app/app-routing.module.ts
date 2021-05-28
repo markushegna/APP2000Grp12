@@ -1,5 +1,8 @@
 /*
 * @Author: Kim Andre
+* Denne modulen tar seg av routinga i heile webapplikasjonen
+* Man kan sette på id'er til pathen slik at man kan sende brukeren til et vist punkt.
+* Som en bedrift som man vil sjekke ut.
 * */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,24 +10,17 @@ import {HomeComponent} from "./pages/home/home.component";
 
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 
-
 import {KategoriComponent} from "./pages/kategori/kategori.component";
 
 import {RegistreringComponent} from "./pages/kategori/registrering/registrering.component";
-
 import {KategoriviewComponent} from "./components/kategoriview/kategoriview.component";
-
 import { LoginComponent } from './components/login/login.component';
-
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
-import{UserAuthComponent}  from "./components/user-auth/user-auth.component"
-import { ImageListComponent } from './components/images/image-list/image-list.component';
-import { ImagesComponent } from './components/images/imagess/images.component';
-import { FormsComponent } from './components/forms/forms.component';
-
+import {InfocardsComponent} from "./components/infocards/infocards.component";
+import{FormsComponent} from "./components/forms/forms.component"
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,7 +29,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'restaurantView',
+    path:'kategori/:katid/bedrifter/:bedid',
     component: RestaurantViewComponent
   },
   {
@@ -41,8 +37,8 @@ const routes: Routes = [
     component: KategoriComponent
   },
   {
-  path: 'kategori/:id',
-  component: KategoriviewComponent
+    path:'kategori/:katid',
+    component: InfocardsComponent
   },
   {
     path: 'registrering',
@@ -57,8 +53,8 @@ const routes: Routes = [
     component:SignupComponent
   },
   {
-      path:'forgot-password',
-      component:ForgotPasswordComponent
+    path:'forgot-password',
+    component:ForgotPasswordComponent
   },
   
   {
@@ -78,6 +74,12 @@ const routes: Routes = [
     
   
 ];
+
+
+
+
+
+
 
 
 // @NgModule({

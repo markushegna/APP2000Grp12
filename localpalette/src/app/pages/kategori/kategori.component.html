@@ -6,7 +6,8 @@
         <h1 class="tittel">Local Palette kategorier</h1>
         <div class="search-field">
           <label>
-            <input #searchInput  (focus)="clicked(searchInput)" class="search__input" type="text" placeholder="Let etter kategorier...">
+            <input #searchInput (focus)="clicked(searchInput)" class="search__input" type="text"
+                   placeholder="Let etter kategorier...">
             <a class="search-btn" (click)="searchFilter(searchInput)"><i class="fas fa-search"></i></a>
           </label>
         </div>
@@ -17,14 +18,14 @@
   </div>
 
   <div class="container-wrapper">
-      <div class="container" *ngFor="let typer of kategoriTab">
+    <div class="container" *ngFor="let kategori of kategoriTab">
 
-        <div [routerLink]="['/kategori/', typer.id]" class="kategori-container">
-          <h3 class="kategori-tittel">{{typer.data.kategori}}</h3>
-        </div>
-
-
+      <div [routerLink]="['/kategori', kategori.id]" class="kategori-container">
+        <h3 class="kategori-tittel">{{kategori.data.kategori}}</h3>
       </div>
+
+
+    </div>
   </div>
 </div>
 

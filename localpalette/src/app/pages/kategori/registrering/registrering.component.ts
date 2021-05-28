@@ -7,6 +7,9 @@ import { TranslateComponent } from 'src/app/components/translate/translate.compo
 import {UploadImgService} from "../../../service/upload-img.service";
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from "rxjs/operators";
+import * as Leaflet from "leaflet";
+import {LeafletMap} from "../../../components/restaurant-view/leaflet-map";
+
 
 @Component({
   selector: 'app-registrering',
@@ -29,10 +32,15 @@ export class RegistreringComponent implements OnInit {
   selectImage:  any=null;
   submit :boolean;
 
+ lng: number;
+  lat: number;
+  coords: any;
   formTemplate = new FormGroup({
     category: new FormControl(''),
     imageUrl: new FormControl('', Validators.required)
-  })
+  }) 
+ 
+
 
   constructor(private katService: KategoriService, 
     private _formBuilder: FormBuilder, 
@@ -42,6 +50,7 @@ export class RegistreringComponent implements OnInit {
     private fireSt :AngularFireStorage
 
     ) { }
+
 
   ngOnInit(): void {
     
@@ -61,6 +70,20 @@ export class RegistreringComponent implements OnInit {
     this.fifthFormGroup = this._formBuilder.group({
       fifthCtrl: ['', Validators.required]
     });
+    this.sixthFormGroup = this._formBuilder.group({
+      sixthCtrl: ['', Validators.required]
+    });
+
+    navigator.geolocation.getCurrentPosition(location =>{
+
+      this.lat = location.coords.latitude;
+      this.lng = location.coords.longitude;
+      const coords = location.coords;
+      const latLong = [coords.latitude, coords.longitude];
+      console.log(this.lat , this.lng, coords);
+
+    });
+
 
    
     this.katService.hentKategorier().subscribe(kategorier=>{
@@ -71,21 +94,21 @@ export class RegistreringComponent implements OnInit {
   lagreBedrift(): void {
     console.log("bedrift lagret")
 
-
-    const data: IRegistreringsform = {
+    const bedriftInfo: IRegistreringsform = {
+      lat: this.lat,
+      lng: this.lng,
       name: this.firstFormGroup.value.firstCtrl,
       location: this.secondFormGroup.value.secondCtrl,
       mobile: this.thirdFormGroup.value.thirdCtrl,
       åpningsTiderHverdag: this.fourthFormGroup.value.fourthCtrl,
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
-      kategori: this.selectedValue.valueOf()
-      
-      
+      omOss: this.sixthFormGroup.value.sixthCtrl,
+      bedriftId: this.db.createId(),
     }
     this.id = this.selectedValue.valueOf();
-    console.log(data);
+    console.log(bedriftInfo);
 
-    this.db.collection('kategorier').doc(this.selectedValue.valueOf()).collection('yrke').doc(this.db.createId()).set(data)
+    this.db.collection('kategorier').doc(this.selectedValue.valueOf()).collection('yrke').doc(bedriftInfo.bedriftId).set(bedriftInfo)
       .then(r => console.log(r));
   }
 
