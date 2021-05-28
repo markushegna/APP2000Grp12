@@ -20,6 +20,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import {BrukerDashComponent} from './components/bruker-dash/bruker-dash.component';
 import {AuthGuard} from './shared/guard/auth.guard';
+import{UserAuthComponent}  from "./components/user-auth/user-auth.component"
+import { ImageListComponent } from './components/images/image-list/image-list.component';
+import { ImagesComponent } from './components/images/imagess/images.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 
 const routes: Routes = [
@@ -56,9 +60,23 @@ const routes: Routes = [
       path:'forgot-password',
       component:ForgotPasswordComponent
   },
+  
   {
     path:"brukerDash",component:BrukerDashComponent,canActivate: [AuthGuard]
+  },
+  
+{
+  path:"kontakt",
+  component : FormsComponent
+},
+    
+  
+  {
+    path:'restaurantView/:id',
+  component: RestaurantViewComponent
   }
+    
+  
 ];
 
 
