@@ -44,42 +44,11 @@ button {
   font-size: 1.8rem;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  border-radius: 5rem;
 }
 button:hover {
   background: white;
   color: black;
-}
-
-/* Nav Section With HERO */
-
-.main-head {
-  background: #131c27;
-  color: white;
-  position: sticky;
-  top: 0px;
-  z-index: 3;
-}
-nav {
-  display: flex;
-  width: 90%;
-  margin: auto;
-  padding: 2rem;
-  min-height: 10vh;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-nav ul {
-  display: flex;
-  flex: 1 1 40rem;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
-#logo {
-  flex: 2 1 40rem;
-  font-family: "Pattaya", sans-serif;
-  font-weight: 400;
 }
 
 .hero {
@@ -101,36 +70,12 @@ nav ul {
 
 
 @media screen and (max-width: 932px) {
-  html {
-    font-size: 45%;
+  .hero h3{
+      font-size: 1rem;
   }
-  nav {
-    text-align: center;
-  }
-  #logo {
-    padding: 2rem;
-  }
-  .cloud {
-    height: 40rem;
-    pointer-events: none;
-  }
-  .moving-cloud-1 {
-    z-index: -1;
-  }
-  .moving-cloud-2 {
-    z-index: -2;
-  }
-  .locations-head h3 {
-    background: rgba(19, 28, 39, 0.9);
-    -webkit-text-fill-color: white;
-  }
-  .form-wrapper {
-    width: 100%;
-  }
-  footer {
-    text-align: center;
-  }
-  footer h5 {
-    padding-bottom: 3rem;
-  }
+  .hero h2{
+    font-size: 3rem;
+    padding-top: 5rem;
+}
+  
 }
