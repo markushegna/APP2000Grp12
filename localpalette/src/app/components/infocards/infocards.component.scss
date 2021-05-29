@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-left: 1%;
+  padding-bottom: 3%;
   margin-top: 1%;
   flex-wrap: wrap;
-
+  background-image: linear-gradient(to left, #BA7453, #D1A984);
   .cards {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 30px 10px 10px 10px;
+    margin: 30px 10px 5px 10px;
     width: 30%;
-
+    padding: 1%;
     .restaurants {
       margin-right: 1%;
     }

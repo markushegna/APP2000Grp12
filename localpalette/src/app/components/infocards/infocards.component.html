@@ -6,7 +6,7 @@
       <mat-card class="restaurants">
         <mat-card-header>
           <mat-card-title >
-            {{bedrift.data.name}} - {{avgRating | async}} stjerner
+            {{bedrift.data.name}}
           </mat-card-title>
           <mat-card-subtitle>
 
@@ -22,7 +22,10 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button color="primary" mat-flat-button [routerLink]="['/kategori', katId, 'bedrifter', bedrift.data.name]">Se mer</button>
+          <button color="primary"
+                  mat-flat-button
+                  [routerLink]="['/kategori', katId, 'bedrifter', bedrift.data.name]"
+          >Se mer</button>
           <button mat-button></button>
         </mat-card-actions>
 
