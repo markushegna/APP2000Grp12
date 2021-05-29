@@ -7,7 +7,7 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background: #2f3640;
+  background: linear-gradient(to left, #BA7453, #D1A984) no-repeat center;
 
   .flex-top-del-container {
     display: flex;
@@ -21,9 +21,9 @@
       width: 100%;
 
       .background-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.5)),
-        url("https://miro.medium.com/max/2400/1*twXGppFcGdocFY7QdfUy3g.jpeg");
+        background-image: linear-gradient(to left, #BA7453, #D1A984),
+
+        url("https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQX8uzcyIBC6TFOmtHLtdOR1kO0jqyEdV5wNN9LpDJKhAY6T8qWPpA7qS8yTnFCf0GQG6qlJ3lC66DpF1FgOAc");
         background-size: cover;
         position: relative;
         height: 100%;
@@ -38,50 +38,7 @@
         transform: translate(-50%, -50%);
         font-size: 60px;
         color: white;
-      }
 
-      .search-field {
-        margin-top: 200px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgb(226, 226, 266);
-        height: 40px;
-        border-radius: 10px;
-        justify-content: center;
-        position: absolute;
-        align-items: center;
-
-        .search__input {
-          border: none;
-          background: none;
-          outline: none;
-          float: left;
-          padding: 0;
-          color: #2f3640;
-          font-size: 16px;
-          transition: 0.4s;
-          line-height: 40px;
-          width: 300px;
-        }
-
-        input[type='text'] {
-          font-size: 16px;
-          font-family: Roboto, "Helvetica Neue", sans-serif;
-          padding-left: 10px;
-        }
-
-        .search-btn {
-          color: #e84118;
-          float: right;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: rgb(226, 226, 266);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-        }
       }
     }
   }
@@ -94,11 +51,11 @@
     width: 100%;
 
     .container {
-      margin: 120px 0 30px 0;
+
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      width: 33%;
+      width: 25%;
 
       .kategori-container {
         width: 750%;
@@ -110,13 +67,13 @@
         height: 250px;
         border-radius: 10px;
         background-size: cover;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+        background-image: linear-gradient(rgba(255, 255, 255, 0),
           rgba(0, 0, 0, 0.5)),
-        url("https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+        url("https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQX8uzcyIBC6TFOmtHLtdOR1kO0jqyEdV5wNN9LpDJKhAY6T8qWPpA7qS8yTnFCf0GQG6qlJ3lC66DpF1FgOAc");
         .kategori-tittel {
           padding: 25px 0 0 0;
           font-size: 35px;
-          color: rgb(226, 226, 226);
+          color:black;
         }
       }
     }

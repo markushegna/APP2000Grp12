@@ -53,11 +53,7 @@ export class InfocardsComponent implements OnInit {
               public stjerneService: StjerneService,
               private activatedRoute: ActivatedRoute) {
   }
-
-  ngOnInit(): void {
-    this.katId = this.activatedRoute.snapshot.paramMap.get('katid');
-    console.log(this.katId);
-    /*
+  /*
      * Med å bruke Dependency Injection mønsteret kan eg lage et objekt uten å tilegne minne til objektet.
      * Då kan eg hente ut funksjonen "visAlleBedrifter()" som tar inn katId'en som parameter.
      * Metoden "visAlleBedrifter()" returnerer et "observable" objekt som eg kan subscribe på
@@ -66,27 +62,12 @@ export class InfocardsComponent implements OnInit {
      * Desse objektene kan eg hente ut i HTML-taggen med å bruke "ngFor" som er ein metode i Angular 2.
      *
      */
+  ngOnInit(): void {
+    this.katId = this.activatedRoute.snapshot.paramMap.get('katid');
+
     this.restaurantService.visAlleBedrifter(this.katId).subscribe(value => {
       this.bedrifter = value;
-
-      /*
-       * Ein feil med denne koden er, vil få snittet på sine stjerner utreknet.
-       * Eg veit ikke hvordan man får til å rekne ut til alle.
-       *
-       * Det håpte på denne loopen skulle gjøre var å gå igjennom alle bedriftene i "this.restauranter" tabellen.
-       * Og sende inn bedrift id'en til funksjonen "getBedriftStjerneGroupQuery()"
-       * for å sende ut all value som brukerene har gitt bedriften.
-       * Videre skal den rekne ut gjennomsnittet til valuen som blir sendt tilbake fra databasen.
-       * Den skal da vise gjennomsnittet ved siden av tittelen på informasjonskortet.
-       */
-      for (let i = 0; i < this.bedrifter.length; i++) {
-        console.log(this.bedriftNavn)
-        this.stjerner = this.stjerneService.getBedriftStjernerGroupQuery(this.bedrifter)
-        this.avgRating = this.stjerner.pipe(map(arr => {
-          const ratings = arr.map(v => v.value);
-          return ratings.length > 0 ? ratings.reduce((total, val) => total + val) / arr.length : 0
-        }))
-      }
     })
+
   }
 }

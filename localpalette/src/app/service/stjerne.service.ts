@@ -33,12 +33,6 @@ export class StjerneService {
     return stjerneRef.valueChanges();
   }
 
-  getBedriftStjerner1(bedriftId) {
-    const stjerneRef = this.afs.collection('review', ref =>
-      ref.where('bedriftId', '==', bedriftId));
-    return stjerneRef.valueChanges();
-  }
-
   setStjerne(brukerId, bedriftId, value) {
     const stjerne: Stjerne = {bedriftId, brukerId, value};
     const stjernePath = `review/${stjerne.brukerId}_${stjerne.bedriftId}`;
@@ -46,13 +40,4 @@ export class StjerneService {
 
   }
 
-
-  getBedriftStjernerGroupQuery(name: Array<object>) {
-    console.log(name)
-    for (let i = 0; i < name.length; i++) {
-        let stjerneRef = this.afs.collection('review', ref =>
-          ref.where('bedriftId', '==', name[i].data.name));
-        return stjerneRef.valueChanges();
-    }
-  }
 }
