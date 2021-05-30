@@ -10,6 +10,7 @@ import { finalize } from "rxjs/operators";
 import * as Leaflet from "leaflet";
 import {LeafletMap} from "../../../components/restaurant-view/leaflet-map";
 import { AuthService } from 'src/app/service/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -58,7 +59,8 @@ export class RegistreringComponent implements OnInit {
     public translate: TranslateComponent,
     public  uploadService : UploadImgService,
     private fireSt :AngularFireStorage,
-    private af : AuthService
+    private af : AuthService,
+    private router : Router
 
     ) { }
 
@@ -98,7 +100,9 @@ export class RegistreringComponent implements OnInit {
 
     });
 
- 
+    if(this.af.isLoggedIn !==true){
+      this.router.navigate(["/login"])
+    }
 
 
 
