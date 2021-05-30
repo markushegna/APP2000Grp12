@@ -68,8 +68,11 @@ export class InfocardsComponent implements OnInit {
 
     this.restaurantService.visAlleBedrifter(this.katId).subscribe(value => {
       this.bedrifter = value;
+      console.log(this.bedrifter)
     })
-
+  }
+  tekst(tekst: string){
+    return tekst.substring(0, 40);
   }
   storBokstav(tekst: string){
     if(typeof tekst !== 'string')
