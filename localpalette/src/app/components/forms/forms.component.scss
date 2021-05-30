@@ -64,22 +64,14 @@
 
 body{
   margin-top:20px;
-  background:rgb(186, 52, 52);
+  background:rgb(165, 6, 6);
 }
-.container{
-  background:
-     url("../../../assets/images/person.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: left;
-    justify-content:left
-}
+
  .gradient-brand-color {
 
   background-image: -webkit-linear-gradient(0deg, #111724 0%, #000000 100%),url("../../../assets/images/person.png");
   background-image: -ms-linear-gradient(0deg, #0c101c 0%, #000000 100%);
-   color:rgb(0, 0, 0);
+   color:rgb(109, 20, 20);
    }
 .contact-info__wrapper {
   overflow: hidden;
@@ -102,10 +94,26 @@ body{
   list-style: none;
 }
 .contact__wrapper {
-  background-color: #fff;
+  background: url("../../../assets/images/footer.png") no-repeat center;
+  background-size: cover;
+
+  background-color:#585036;
+  color: white;
   border-radius: 0 0 .625rem .625rem
 }
-
+.col-sm-12 button{
+  background-color: #A80E0E; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
 @media (min-width: 1024px) {
   .contact__wrapper {
       border-radius: .625rem 0 .625rem .625rem

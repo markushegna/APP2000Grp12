@@ -1,51 +1,45 @@
-<div>
-  <mat-toolbar>
+<!-- Abiel kidane-->
+
+
+<div >
+  <mat-toolbar color="">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
-      <span><a routerLink="/home"> Local palette</a> </span>
-
+        <a routerLink="/home" class="logo"><img src="assets/images/logo4.png" class="logo-img" alt="logo"></a>
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
 
         <a routerLink="/home" mat-button>{{'Home' | translate}}</a>
         <a routerLink="/kategori" mat-button>{{'Category' | translate}}</a>
-        <a routerLink="/registrering" mat-button>{{'Register' | translate}}</a>
-        <a href="#" mat-button>{{'Gallery' | translate}}</a>
+        <a *ngIf="auth.userData as user " routerLink="/registrering" mat-button>{{'Register' | translate}}</a>
+        
+        <a routerLink="/kontakt" mat-button>{{'Contact Us' |translate}}</a>
 
-
-
-        <a href="#" mat-button>Testimonals</a>
-        <a href="#" mat-button>{{'Contact Us' |translate}}</a>
-
-        <a href="#" mat-button>
-           <mat-icon>search</mat-icon>
+        <a   routerLink ="/login" mat-button>
+          <mat-icon >person</mat-icon>
         </a>
-
-
-          <a  *ngIf="auth.userData as user" routerLink ="/brukerDash" mat-button>
-            <mat-icon >person</mat-icon>
-          </a>
-            </div>
+        
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <a href="#" mat-list-item>Home</a>
-        <a href="#" mat-list-item>Menu</a>
-        <a href="#" mat-list-item>Gallery</a>
-        <a href="#" mat-list-item>Testimonals</a>
-        <a href="#" mat-list-item>Contact us </a>
-        <a href="#" mat-button>
-          <mat-icon>search</mat-icon>
-        </a>
+    <mat-sidenav   #sidenav mode="push"  position ="end"  from ="start"[fixedInViewport]="true">
+      <mat-nav-list  >
 
-        <a routerLink="/login" mat-button>
-          <mat-icon>person</mat-icon>
+        <a routerLink="/home" mat-list-itemn>{{'Home' | translate}}</a>
+        <a routerLink="/kategori" mat-list-item>{{'Category' | translate}}</a>
+        <a *ngIf="auth.userData as user " routerLink="/registrering"mat-list-item>{{'Register' | translate}}</a>
+        
+        <a routerLink="/kontakt" mat-list-item>{{'Contact Us' |translate}}</a>
+
+        <a   routerLink ="/login" mat-button>
+          <mat-icon >person</mat-icon>
         </a>
+        
+       
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
@@ -54,3 +48,5 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
+

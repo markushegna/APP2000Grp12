@@ -13,3 +13,35 @@
     margin-left: 20rem;
 }
 
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 46px;
+}
+
+.logo-img {
+  height: 50px;
+  margin: 0 12px;
+}
+
+mat-toolbar {
+  background:#e2cc83;
+  color: black;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}

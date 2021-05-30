@@ -18,22 +18,16 @@ export class AuthGuard implements CanActivate {
    * @returns 
    */
   // om brukker ikke logget inn kan en ikke ha tilgang til 
-  // bruker dash  hvis brukker ikker er logget inn  så skal 
+  // bruker dash  hvis brukker ikke er logget inn  så skal 
   // de navigere til loginsiden  
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.authService.isLoggedIn !== true) {
-      this.router.navigate(['/login'])
-    }
-    
-    /*
-   else if (this.authService.isLoggedIn == true){
-        this.router.navigate(["/brukerDash "])
-    }
-    */
-    
-    return true;
+      if(this.authService.isLoggedIn !== true) {
+        this.router.navigate(['/login'])
+      }
+      return true;
+      
   }
 
   

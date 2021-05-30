@@ -7,23 +7,39 @@ import { Router } from "@angular/router";
 import firebase from "firebase/app";
 import { KategoriService } from './kategori.service';
 import Swal from 'sweetalert2';
-
+//import { auth } from 'firebase/app';
+import auth from "firebase/app";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any; // lagre logget inn bruker gjennom hele siden auth service liger som provider inn app.module.ts
+
+ 
+/**
+ *  Abiel
+ *  se https://firebase.google.com/docs/auth/web/
+ * er brukt for å se på hvordan den innebygde funksjoner fungerer 
+ */
+
+
+/**
+ * brukes til å lagre brukerinfo, dette er mye lettere å hente data fra brukeren 
+ */
+ userData: any; 
 
   constructor(
-    public afs: AngularFirestore,   // firestore service
-    public afAuth: AngularFireAuth, // gir tilgang til  firestore authentication
-    public router: Router,
-    public ngZone: NgZone // fjerener outscope varsel
+    public readonly  afs: AngularFirestore,   // firestore service
+    public readonly  afAuth: AngularFireAuth, // gir tilgang til  firestore authentication
+    public readonly router: Router,
+    public readonly ngZone: NgZone      // fjerener outscope varsel
   ) {
     // lagrer bruker info på localstorage og setter det til null etter person har logget ut
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.userData = user;
+        this.userData =user 
+    
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
       } else {
@@ -33,13 +49,20 @@ export class AuthService {
     })
   }
 
-  // async funciton fodri den er basert på bruker sin input  loger inn med email og passord som er lagret på databasen
+ /**
+  * async function fordi den er basert på bruker sin input 
+  * loger inn med email og passord som er lagret på databasen
+  *  kaster untak hvis det  bruker med registert info ikke finnes 
+  * med byg inn function  signInWithEmailAndPassword 
+  * @param email 
+  * @param password 
+  */
   async SignIn(email:string, password:string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
         // etter bruker har loget inn den skal vidre til bruker dash
-        this.router.navigate(['brukerDash']);
+        this.router.navigate(['/brukerDash']);
       });
       this.SetUserData(result.user);
     } catch (error) {
@@ -47,7 +70,13 @@ export class AuthService {
     }
   }
 
-  // Regisrer bruker med email og pasord
+  /**
+   * bruker kan registrere seg på nettstedet 
+   * etter at brukeren har registrert seg i brukerinfo, 
+   * og bekreftelsesmail blir sendt 
+   * @param email 
+   * @param password 
+   */
   async SignUp(email:string, password:string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
@@ -63,18 +92,24 @@ export class AuthService {
 
 
 
-  // om bruker har glemt passord ofg vil reset det
+  /**
+   * bruker kan resete sitt passord 
+   * @param passwordResetEmail 
+   */
   async ForgotPassword(passwordResetEmail:string) {
     try {
       await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
-      window.alert('Password reset email sent, check your inbox.');
+      Swal.fire("Passord tilbakestilt e-post sendt, sjekk innboksen din.")
     } catch (error) {
       Swal.fire('Feil: Det er ingen bruker som tilsvarer denne identifikatoren. Brukeren kan ha blitt slettet. ')
     }
   }
 
-  // returnere   true hvis brukekr er loget inn   den skjekker om bruker er loget vet å hente data fra localstorage
-  get isLoggedIn(): boolean {
+  /**
+   * get funksjon som sjekker om brukeren er bekreftet eller ikke 
+   * hvis ikke brukeren må verifisere for å fortsette til brukerens dashbord 
+   */
+   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
@@ -82,11 +117,10 @@ export class AuthService {
   // eller du kan loge inn direkte med google
   GoogleAuth() {
     const googleprovider = new firebase.auth.GoogleAuthProvider();
-
     return this.AuthLogin(googleprovider);
   }
 
-  // log in med twitter
+  // log in med facebook 
 
   FacebookAuth(){
     const faceprovider= new firebase.auth.FacebookAuthProvider();
@@ -97,9 +131,12 @@ export class AuthService {
   async AuthLogin(provider:any) {
     try {
       const result = await this.afAuth.signInWithPopup(provider);
+      const user = JSON.parse(localStorage.getItem('user'));
+        
       this.ngZone.run(() => {
-        this.router.navigate(['brukerDash']);
+        this.router.navigate(['/brukerDash']);
       });
+
       this.SetUserData(result.user);
     } catch (error) {
       window.alert(error);
@@ -108,8 +145,8 @@ export class AuthService {
 
 // sender bekreftelse etter bruker har registret seg
   async SendVerificationMail() {
-    (await this.afAuth.currentUser).sendEmailVerification().then(() => {
-      console.log('email sent');
+    return (await this.afAuth.currentUser).sendEmailVerification().then(() => {
+      console.log('email sendt ');
     });
   }
 
@@ -140,3 +177,5 @@ export class AuthService {
 
 
 }
+
+

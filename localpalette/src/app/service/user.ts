@@ -1,3 +1,4 @@
+// Abiel
 export interface User {
     uid: string;
     email: string;
@@ -7,18 +8,5 @@ export interface User {
     
 }
 
-// export interface ProductReviews{
-//     uid:string;
-//     comments :string ;
-//     review:  string;
-//     resturanID:string 
 
-// }
-
-// export interface ProductRatings{
-//     productid:string;
-//     rating:number;
-// }
-
-// // 
 
