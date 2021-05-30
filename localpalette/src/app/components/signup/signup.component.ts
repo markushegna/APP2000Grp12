@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../service/auth.service"
-import { TranslateComponent } from '../translate/translate.component';
+import {TranslateComponent} from '../translate/translate.component';
 
 @Component({
   selector: 'app-signup',
@@ -10,9 +10,10 @@ import { TranslateComponent } from '../translate/translate.component';
 export class SignupComponent implements OnInit {
 
   constructor(
-    public afAuth :AuthService,
-    public translate :  TranslateComponent
-  ) { }
+    public afAuth: AuthService,
+    public translate: TranslateComponent
+  ) {
+  }
 
   ngOnInit(): void {
   }

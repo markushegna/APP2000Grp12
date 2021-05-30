@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateComponent } from 'src/app/components/translate/translate.component';
-import {CommentfieldService} from "../../service/commentfield.service";
+import {Component, OnInit} from '@angular/core';
+import {TranslateComponent} from 'src/app/components/translate/translate.component';
 
 
 @Component({
@@ -11,8 +10,9 @@ import {CommentfieldService} from "../../service/commentfield.service";
 export class HomeComponent implements OnInit {
 
   constructor(
-    public translate :TranslateComponent
-  ) { }
+    public translate: TranslateComponent
+  ) {
+  }
 
   ngOnInit(): void {
 

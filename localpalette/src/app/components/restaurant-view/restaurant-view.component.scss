@@ -1,9 +1,10 @@
 
 .content {
-  margin-top: 5vh;
-  margin-left: 2vh;
+
   display: flex;
   flex-direction: column;
+  background-image: linear-gradient(to left, #d2a056, #e2cc83);
+  padding: 4vh;
 
   .content-header {
     display: flex;
@@ -33,10 +34,10 @@
         border-bottom: 1vh solid #eb5e4c;
       }
 
-        h3 {
-          padding-right: 7%;
-          padding-left: 2%;
-        }
+      h3 {
+        padding-right: 7%;
+        padding-left: 2%;
+      }
 
     }
   }
@@ -70,6 +71,7 @@
         font-size: 30px;
         margin-bottom: 3vh;
       }
+
       p {
         font-size: 20px;
         line-height: 35px;
@@ -114,6 +116,7 @@
         }
       }
     }
+
     .images {
       display: flex;
       justify-content: center;
@@ -162,6 +165,7 @@
         margin-right: 5vh;
       }
     }
+
     .content-main {
       display: flex;
       flex-direction: column;

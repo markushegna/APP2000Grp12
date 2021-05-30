@@ -3,12 +3,8 @@
 * */
 
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {KategoriService} from "../../service/kategori.service";
-import {Observable} from "rxjs";
-import {AngularFirestore, DocumentChangeAction} from "@angular/fire/firestore";
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-kategori',
@@ -24,7 +20,8 @@ export class KategoriComponent implements OnInit {
   /*
   * Tar inn KategoriServer og bruker metoden hentKategorier()
   * */
-  constructor(private katService: KategoriService) { }
+  constructor(private katService: KategoriService) {
+  }
 
 
   /*
@@ -33,13 +30,13 @@ export class KategoriComponent implements OnInit {
   * */
   ngOnInit(): void {
 
-    this.katService.hentKategorier().subscribe(value =>{
+    this.katService.hentKategorier().subscribe(value => {
       this.kategoriTab = value;
-      console.log(this.kategoriTab)
     });
   }
-  storBokstav(tekst: string){
-    if(typeof tekst !== 'string')
+
+  storBokstav(tekst: string) {
+    if (typeof tekst !== 'string')
       return '';
     return tekst.charAt(0).toUpperCase() + tekst.slice(1);
   }

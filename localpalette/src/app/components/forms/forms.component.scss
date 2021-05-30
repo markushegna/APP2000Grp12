@@ -1,78 +1,14 @@
-
-
-// #contact {
-//     min-height: 10vh;
-    
-    
-//     // background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
-//     // url("../../../assets/images/person.png");
-//     background-size: 300px 300px;
-//     background-repeat: no-repeat;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-  
-//   .form-wrapper {
-//     background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
-//     url("../../../assets/images/person.png");
-//     background-size: 70rem 45rem;
-
-//     background-repeat: no-repeat;
-//     align-items: center;
-//     justify-content: center;
-
-//     width: 60%;
-//     color:rgba(245, 249, 255, 0.8);
-//     border-radius: 2rem;
-//   }
-//   .form-head {
-//     text-align: center;
-//     padding: 4rem;
-//   }
-//   .name-form,
-//   .email-form,
-//   .mesageform-form {
-//     padding: 3rem;
-//     text-align: center;
-//   }
-//   .form-wrapper label {
-//     margin: 0rem 3rem;
-//   }
-//   .form-wrapper button {
-//     width: 100%;
-//     padding: 2rem;
-//     margin-top: 8rem;
-//     border-radius: 2rem;
-//   }
-//   .form-wrapper input {
-//     padding: 1rem 3rem;
-//   }
-  
-  
-// /* Media Query */
-// @media screen and (max-width: 932px) {
-//   html {
-//     font-size: 45%;
-//   }
-
-//   .form-wrapper {
-//     width: 100%;
-//   }
-
-// }
-
 body{
   margin-top:20px;
   background:rgb(165, 6, 6);
 }
 
- .gradient-brand-color {
+.gradient-brand-color {
 
   background-image: -webkit-linear-gradient(0deg, #111724 0%, #000000 100%),url("../../../assets/images/person.png");
   background-image: -ms-linear-gradient(0deg, #0c101c 0%, #000000 100%);
-   color:rgb(109, 20, 20);
-   }
+  color:rgb(109, 20, 20);
+}
 .contact-info__wrapper {
   overflow: hidden;
   border-radius: .625rem .625rem 0 0
@@ -80,8 +16,8 @@ body{
 
 @media (min-width: 1024px) {
   .contact-info__wrapper {
-      border-radius: 0 .625rem .625rem 0;
-      padding: 5rem !important
+    border-radius: 0 .625rem .625rem 0;
+    padding: 5rem !important
   }
 }
 .contact-info__list span.position-absolute {
@@ -116,12 +52,12 @@ body{
 }
 @media (min-width: 1024px) {
   .contact__wrapper {
-      border-radius: .625rem 0 .625rem .625rem
+    border-radius: .625rem 0 .625rem .625rem
   }
 }
 @media (min-width: 1024px) {
   .contact-form__wrapper {
-      padding: 5rem !important
+    padding: 5rem !important
   }
 }
 .shadow-lg, .shadow-lg--on-hover:hover {

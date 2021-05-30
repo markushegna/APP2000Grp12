@@ -1,86 +1,85 @@
-
 <!-- Abiel -->
 <footer class="deneb_footer">
-	<div class="widget_wrapper" >
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="widget widegt_about">
-						<div class="widget_title">
-							<img src="assets/images/logo.png" class="img-fluid" alt="">
-						</div>
-						<p>
+  <div class="widget_wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="widget widegt_about">
+            <div class="widget_title">
+              <img src="assets/images/logo.png" class="img-fluid" alt="">
+            </div>
+            <p>
               {{'Ofte kan lokale bedrifter og restauranter komme litt i baksetet når det gjelder publisitet og muligheten til å vise seg fram.' | translate}}
-               </p>
-						<ul class="social">
-							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-						</ul>
+            </p>
+            <ul class="social">
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
 
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="widget widget_link">
-						<div class="widget_title">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="widget widget_link">
+            <div class="widget_title">
 
 							<span class="example-spacer">
 								<span class="form-inline">
 								  <select class="form-control" #selectedLang (change)="translate.switchLang(selectedLang.value)">
 									<option *ngFor="let language of translate.translate.getLangs()" [value]="language"
-									[selected]="language === translate.currentLang">
+                          [selected]="language === translate.currentLang">
 									{{ language }}
 									</option>
 								  </select>
 								  </span>
 							  </span>
-						</div>
+            </div>
 
-						<ul>
-							<li><a href="#">{{'About' | translate}}</a></li>
-							<li><a href="#">{{'Services' | translate}}</a></li>
-							<li><a href="#">{{'Portfolio' | translate}}</a></li>
-							<li><a href="#">{{'Blog' | translate}}</a></li>
-						</ul>
+            <ul>
+              <li><a href="#">{{'About' | translate}}</a></li>
+              <li><a href="#">{{'Services' | translate}}</a></li>
+              <li><a href="#">{{'Portfolio' | translate}}</a></li>
+              <li><a href="#">{{'Blog' | translate}}</a></li>
+            </ul>
 
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="widget widget_contact">
-						<div class="widget_title">
-							<h4>{{'Contact Us' | translate}}</h4>
-						</div>
-						<div class="contact_info">
-							<div class="single_info">
-								<div class="icon">
-									<i class="fas fa-phone-alt"></i>
-								</div>
-								<div class="info">
-									<p><a href="tel:+919246147999">41232004</a></p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="widget widget_contact">
+            <div class="widget_title">
+              <h4>{{'Contact Us' | translate}}</h4>
+            </div>
+            <div class="contact_info">
+              <div class="single_info">
+                <div class="icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info">
+                  <p><a href="tel:+919246147999">41232004</a></p>
 
-								</div>
-							</div>
-							<div class="single_info">
-								<div class="icon">
-									<i class="fas fa-envelope"></i>
-								</div>
-								<div class="info">
-									<p><a href="mailto:info@localpalette.com">info@loc.com</a></p>
-									<p><a href="mailto:services@localpalette.com">services@loc.com</a></p>
-								</div>
-							</div>
+                </div>
+              </div>
+              <div class="single_info">
+                <div class="icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info">
+                  <p><a href="mailto:info@localpalette.com">info@loc.com</a></p>
+                  <p><a href="mailto:services@localpalette.com">services@loc.com</a></p>
+                </div>
+              </div>
 
-							<div class="single_info">
-								<div class="icon">
-									<i class="fas fa-map-marker-alt"></i>
-								</div>
-								<div class="info">
-									<p><span>Midt Telemark</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+              <div class="single_info">
+                <div class="icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info">
+                  <p><span>Midt Telemark</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
