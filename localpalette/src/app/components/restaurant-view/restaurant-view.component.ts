@@ -84,13 +84,21 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
   * */
   ngOnInit(): void {
 
+
+
+  }
+
+
+
+
+  ngAfterViewInit(): void {
     const docID = this.activatedRoute.snapshot.paramMap.get('bedid');
     console.log(docID)
     this.katId=this.activatedRoute.snapshot.params["katid"]
     this.bedriftnavn=this.activatedRoute.snapshot.params["bedid"]
     this.bedriftDoc = this.afs.collection('yrke').doc(docID);
- /*   this.bedrift = this.bedriftDoc.valueChanges();
-    this.bruker = this.brukerDoc.valueChanges();*/
+    /*   this.bedrift = this.bedriftDoc.valueChanges();
+       this.bruker = this.brukerDoc.valueChanges();*/
     console.log(this.katId)
     /*
     * Dette vil hente ut informasjon om bedrifta med å søke etter kategoriId og docID som blir bedriftId'en.
@@ -126,14 +134,10 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
       })
 
 
-
   }
-
-
-
-
-  ngAfterViewInit(): void {
-
+  storBokstav(tekst: string){
+    if(typeof tekst !== 'string')
+      return '';
+    return tekst.charAt(0).toUpperCase() + tekst.slice(1);
   }
-
 }

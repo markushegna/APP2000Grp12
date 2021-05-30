@@ -13,7 +13,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
 
-
+/*
+ * Her ligger alle de importerede material
+ * modulene som brukes i de forskjellige komponentene.
+ */
 @NgModule({
   imports: [
     MatButtonModule,

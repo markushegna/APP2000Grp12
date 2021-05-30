@@ -13,6 +13,7 @@
 
         <a routerLink="/home" mat-button>{{'Home' | translate}}</a>
         <a routerLink="/kategori" mat-button>{{'Category' | translate}}</a>
+
         <a *ngIf="auth.userData as user " routerLink="/registrering" mat-button>{{'Register' | translate}}</a>
         
         <a routerLink="/kontakt" mat-button>{{'Contact Us' |translate}}</a>
@@ -20,8 +21,7 @@
         <a   routerLink ="/login" mat-button>
           <mat-icon >person</mat-icon>
         </a>
-        
-      </div>
+            </div>
     </mat-toolbar-row>
   </mat-toolbar>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IRegistreringsform} from "../../../service/IRegistreringsform";
 import {AngularFirestore} from "@angular/fire/firestore";
@@ -18,21 +18,29 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./registrering.component.scss']
 })
 export class RegistreringComponent implements OnInit {
-  
+
   isLinear = false;
   firstFormGroup:  FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
-  sixthFormGroup : FormGroup;
+  sixthFormGroup: FormGroup;
+  seventhFormGroup: FormGroup;
   selectedValue: string;
   kategoriTabell: Array<object>
   id: string = "";
-  imgsrc: string 
+  imgsrc: string
   selectImage:  any=null;
   submit :boolean;
   
+
+  @Input() maxNumberOfCharacters = 160;
+  counter = true;
+  numberOfCharacters2 = 0;
+  interaction = {
+    textValue: ''
+  };
 
  lng: number;
   lat: number;
@@ -40,13 +48,13 @@ export class RegistreringComponent implements OnInit {
   formTemplate = new FormGroup({
     category: new FormControl('',Validators.required),
     imageUrl: new FormControl('', Validators.required)
-  }) 
- 
+  })
 
 
-  constructor(private katService: KategoriService, 
-    private _formBuilder: FormBuilder, 
-    public db: AngularFirestore,   
+
+  constructor(private katService: KategoriService,
+    private _formBuilder: FormBuilder,
+    public db: AngularFirestore,
     public translate: TranslateComponent,
     public  uploadService : UploadImgService,
     private fireSt :AngularFireStorage,
@@ -56,8 +64,8 @@ export class RegistreringComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-    
+
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -76,6 +84,9 @@ export class RegistreringComponent implements OnInit {
     this.sixthFormGroup = this._formBuilder.group({
       sixthCtrl: ['', Validators.required]
     });
+    this.seventhFormGroup = this._formBuilder.group({
+      seventhCtrl: ['', Validators.required]
+    });
 
     navigator.geolocation.getCurrentPosition(location =>{
 
@@ -90,7 +101,7 @@ export class RegistreringComponent implements OnInit {
  
 
 
-   
+
     this.katService.hentKategorier().subscribe(kategorier=>{
       this.kategoriTabell = kategorier;
     })
@@ -107,7 +118,7 @@ export class RegistreringComponent implements OnInit {
       mobile: this.thirdFormGroup.value.thirdCtrl,
       åpningsTiderHverdag: this.fourthFormGroup.value.fourthCtrl,
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
-      omOss: this.sixthFormGroup.value.sixthCtrl,
+      omOss: this.seventhFormGroup.value.seventhCtrl,
       bedriftId: this.db.createId(),
       
       
@@ -151,7 +162,7 @@ hvor vi har kategori resturant vil det  være bilder av kunn restauranter  og sl
   onSubmit(formValue) {
     this.submit = true;
     if (this.formTemplate.valid) {
-       
+
       const filePath = `${formValue.category}/${this.selectImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
       const fileRef = this.fireSt.ref(filePath);
       this.fireSt.upload(filePath, this.selectImage).snapshotChanges().pipe(
@@ -169,6 +180,8 @@ hvor vi har kategori resturant vil det  være bilder av kunn restauranter  og sl
   get formControls() {
     return this.formTemplate['controls'];
   }
- 
-  
+
+  onModelChange(textValue: string): void {
+    this.numberOfCharacters2 = textValue.length;
+  }
 }
