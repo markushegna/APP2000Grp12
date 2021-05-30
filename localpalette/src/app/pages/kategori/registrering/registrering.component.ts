@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IRegistreringsform} from "../../../service/IRegistreringsform";
 import {AngularFirestore} from "@angular/fire/firestore";
@@ -32,6 +32,13 @@ export class RegistreringComponent implements OnInit {
   imgsrc: string
   selectImage:  any=null;
   submit :boolean;
+
+  @Input() maxNumberOfCharacters = 160;
+  counter = true;
+  numberOfCharacters2 = 0;
+  interaction = {
+    textValue: ''
+  };
 
  lng: number;
   lat: number;
@@ -158,4 +165,7 @@ export class RegistreringComponent implements OnInit {
 
   }
 
+  onModelChange(textValue: string): void{
+    this.numberOfCharacters2 = textValue.length;
+  }
 }
