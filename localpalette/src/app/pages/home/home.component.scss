@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   font-size: 62.5%;
 }
@@ -15,6 +16,7 @@ body {
 h1 {
   font-size: 2.6rem;
 }
+
 li,
 button,
 label,
@@ -22,21 +24,26 @@ input,
 p {
   font-size: 2rem;
 }
+
 h2 {
   font-size: 4.8rem;
 }
+
 h3 {
   font-size: 3rem;
   font-weight: normal;
 }
+
 h4,
 h5 {
   font-size: 2.8rem;
 }
+
 a {
   color: white;
   text-decoration: none;
 }
+
 button {
   padding: 2rem 6rem;
   background: #fba543;
@@ -48,36 +55,37 @@ button {
   border-radius: 5rem;
   background: linear-gradient((#e2cc83), transparent) no-repeat center,url("../../../assets/images/footer1.png");
 }
+
 button:hover {
   background: white;
   color: black;
 }
 
 .hero {
-    min-height: 90vh; 
-  background: linear-gradient((#e2cc83), transparent) no-repeat center,url("../../../assets/images/Home.jpg");
+  min-height: 100vh;
+  background: linear-gradient(#e2cc83, transparent) no-repeat center, url("../../../assets/images/Home.jpg");
+
   background-size: cover;
   color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .hero h3 {
-    padding: 5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-
+.hero h3 {
+  padding: 5rem;
+}
 
 
 @media screen and (max-width: 932px) {
-  .hero h3{
-      font-size: 1rem;
+  .hero h3 {
+    font-size: 1rem;
   }
-  .hero h2{
+  .hero h2 {
     font-size: 3rem;
     padding-top: 5rem;
-}
+  }
 
 }

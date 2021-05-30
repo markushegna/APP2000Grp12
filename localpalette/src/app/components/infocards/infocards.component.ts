@@ -12,7 +12,6 @@ import {RestaurantInfoService} from "../../service/restaurant-info.service";
 import {ActivatedRoute} from "@angular/router";
 import {StjerneService} from "../../service/stjerne.service";
 import {AngularFirestore} from "@angular/fire/firestore";
-import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 
 @Component({
@@ -68,15 +67,18 @@ export class InfocardsComponent implements OnInit {
 
     this.restaurantService.visAlleBedrifter(this.katId).subscribe(value => {
       this.bedrifter = value;
-      console.log(this.bedrifter)
     })
   }
-  tekst(tekst: string){
+
+  tekst(tekst: string) {
     return tekst.substring(0, 40);
   }
-  storBokstav(tekst: string){
-    if(typeof tekst !== 'string')
+
+  storBokstav(tekst: string) {
+    if (typeof tekst !== 'string')
       return '';
     return tekst.charAt(0).toUpperCase() + tekst.slice(1);
   }
+
+
 }

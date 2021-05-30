@@ -1,27 +1,23 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <!-- Abiel -->
 <div class="container bootdey flex-grow-1 container-p-y">
 
+  <div class="media align-items-center py-3 mb-3" *ngIf="authService.userData as user">
 
-            <div class="media align-items-center py-3 mb-3" *ngIf="authService.userData as user">
-              
-              <img src="{{(user.photoURL)}}"
-                alt="{{user.displayName}}" alt="" class="d-block ui-w-100 rounded-circle">
-              <div class="media-body ml-4">
-                <h4 class="font-weight-bold mb-0">{{(user.displayName) ? user.displayName : 'User'}} 
-                  <span class="text-muted font-weight-normal">{{user.email}}</span></h4>
-                <div class="text-muted mb-2"> id: {{user.uid}}</div>
-                
-                <a class="btn btn-default btn-sm" (click)="authService.SignOut()">
-                  <i class="fas fa-sign-out-alt">log ut</i>
-                </a>
-              </div>
-            </div>
-          
-  
-          </div>
+    <img src="{{(user.photoURL)}}"
+         alt="{{user.displayName}}" alt="" class="d-block ui-w-100 rounded-circle">
+    <div class="media-body ml-4">
+      <h4 class="font-weight-bold mb-0">{{(user.displayName) ? user.displayName : 'User'}}
+        <span class="text-muted font-weight-normal">{{user.email}}</span></h4>
+      <div class="text-muted mb-2"> id: {{user.uid}}</div>
 
-        
+      <a class="btn btn-default btn-sm" (click)="authService.SignOut()">
+        <i class="fas fa-sign-out-alt">log ut</i>
+      </a>
+    </div>
+  </div>
+</div>
 
 
-        
+
+

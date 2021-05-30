@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateComponent } from '../translate/translate.component';
+import {Component, OnInit} from '@angular/core';
+import {TranslateComponent} from '../translate/translate.component';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +10,8 @@ export class FooterComponent implements OnInit {
 
   constructor(
     public translate: TranslateComponent
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }

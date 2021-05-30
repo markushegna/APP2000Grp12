@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {MatButtonModule} from "@angular/material/button";
 import {MatOptionModule, MatRippleModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
@@ -41,7 +41,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatSelectModule,
     MatDatepickerModule
   ],
-  exports:[
+  exports: [
     MatButtonModule,
     MatRippleModule,
     MatCardModule,
@@ -65,4 +65,5 @@ import {MatSelectModule} from "@angular/material/select";
     MatDatepickerModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+}
