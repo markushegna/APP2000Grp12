@@ -93,11 +93,12 @@
           </form>
         </div>
       </mat-step>
-      <mat-step [stepControl]="seventhFormGroup">
+      <mat-step   [stepControl]="seventhFormGroup">
         <form [formGroup]="seventhFormGroup">
           <ng-template matStepLabel>{{'Om oss' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-          <input matInput placeholder="Om oss" formControlName="seventhCtrl" required>
+          <textarea  [(ngModel)]="interaction.textValue" (ngModelChange)="onModelChange($event)" [attr.maxlength]="counter ? maxNumberOfCharacters : ''" matInput placeholder="Om oss" formControlName="seventhCtrl" required ></textarea>
+          <div class="">{{numberOfCharacters2}} / {{maxNumberOfCharacters}}</div>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
