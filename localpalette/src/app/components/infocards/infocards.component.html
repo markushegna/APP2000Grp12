@@ -6,7 +6,7 @@
       <mat-card class="restaurants">
         <mat-card-header>
           <mat-card-title >
-            {{bedrift.data.name}} - {{avgRating | async}} stjerner
+            {{storBokstav(bedrift.data.name)}}
           </mat-card-title>
           <mat-card-subtitle>
 
@@ -17,13 +17,16 @@
 
         <mat-card-content>
           <p>
-            Info om restauranten. Kort og presis beskrivelse.
+            {{tekst(bedrift.data.omOss)}}...
           </p>
         </mat-card-content>
 
         <mat-card-actions>
-          <button color="primary" mat-flat-button [routerLink]="['/kategori', katId, 'bedrifter', bedrift.data.name]">Se mer</button>
-          <button mat-button></button>
+          <button color="primary"
+                  mat-flat-button
+                  [routerLink]="['/kategori', katId, 'bedrifter', bedrift.data.name]"
+          >{{'Se mer' | translate}}</button>
+          <button id="seMer" mat-button></button>
         </mat-card-actions>
 
       </mat-card>
