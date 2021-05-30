@@ -114,7 +114,7 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  // eller du kan loge inn direkte med google
+  // log inn med google mail 
  async GoogleAuth() {
     try{
       const googleprovider = new firebase.auth.GoogleAuthProvider();
