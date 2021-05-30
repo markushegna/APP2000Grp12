@@ -81,7 +81,7 @@ export class BrukerRatingComponent implements OnInit {
    private static getUid() {
      const user = JSON.parse(localStorage.getItem('user'));
      if(user !== null && user.emailVerified !== false) {
-       return user.uid;
+       return user.displayName;
      }
    }
 
