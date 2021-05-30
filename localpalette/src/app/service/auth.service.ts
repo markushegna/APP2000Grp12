@@ -115,34 +115,22 @@ export class AuthService {
   }
 
   // eller du kan loge inn direkte med google
-  GoogleAuth() {
-    const googleprovider = new firebase.auth.GoogleAuthProvider();
-    return this.AuthLogin(googleprovider);
-  }
-
-  // log in med facebook 
-
-  FacebookAuth(){
-    const faceprovider= new firebase.auth.FacebookAuthProvider();
-    return this.AuthLogin(faceprovider)
-  }
-
-  // funcksjon som tar imot  andre providre som facebook og google som må bekrefte bruker er eksister fra sin api
-  async AuthLogin(provider:any) {
-    try {
-      const result = await this.afAuth.signInWithPopup(provider);
-      const user = JSON.parse(localStorage.getItem('user'));
-        
-      this.ngZone.run(() => {
-        this.router.navigate(['/brukerDash']);
-      });
-
-      this.SetUserData(result.user);
-    } catch (error) {
-      window.alert(error);
+ async GoogleAuth() {
+    try{
+      const googleprovider = new firebase.auth.GoogleAuthProvider();
+    const  provider = await this.afAuth.signInWithPopup(googleprovider);
+    this.ngZone.run(() => {
+      this.router.navigate(['/brukerDash']);
+    });
+    this.SetUserData(provider.user)
+    }catch(error){
+      Swal.fire("noe gikk galt prøv igjen")
     }
+    
+  
   }
 
+  
 // sender bekreftelse etter bruker har registret seg
   async SendVerificationMail() {
     return (await this.afAuth.currentUser).sendEmailVerification().then(() => {
