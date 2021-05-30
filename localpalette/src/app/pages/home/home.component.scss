@@ -46,6 +46,7 @@ button {
   cursor: pointer;
   transition: 0.5s ease-in-out;
   border-radius: 5rem;
+  background: linear-gradient((#e2cc83), transparent) no-repeat center,url("../../../assets/images/footer1.png");
 }
 button:hover {
   background: white;
