@@ -1,3 +1,5 @@
+import{environment as comon} from"../environments/environment"
 export const environment = {
-  production: true
+  ...comon,
+  production: false,
 };
