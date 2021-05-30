@@ -2,9 +2,7 @@
   <h1>{{'Registrer bedrift' | translate}}</h1>
   <a routerLink="/kategori">{{'Gå tilbake' | translate}}</a>
   <div class="stepper">
-
     <mat-vertical-stepper [linear]="isLinear" #stepper="matVerticalStepper">
-
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>{{'Bedriftens navn' | translate}}</ng-template>
@@ -86,7 +84,7 @@
               <select formControlName="category" class="form-control" >
                 <option  *ngFor="let kat of kategoriTabell"  value={{kat.id}} > {{kat.data.kategori}}</option>
               </select>
-            </div> 
+            </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <button mat-button matStepperNext type="submit">Last opp</button>
@@ -95,10 +93,12 @@
           </form>
         </div>
       </mat-step>
-      
+
       <div class="">
       <mat-step>
         <form>
+          <!-- Henter inn kategoriene som vises i en nedtrekksliste.
+               Bedriften blir da lagt inn i den kategorien brukeren velger -->
           <ng-template matStepLabel>{{'Kategori' | translate}}</ng-template>
           <!-- <mat-form-field  formControlName="sixthCtrl" required> -->
             <mat-select [(value)]="selectedValue" placeholder = "Velg kategori">

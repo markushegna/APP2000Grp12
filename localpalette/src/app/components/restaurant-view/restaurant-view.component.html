@@ -1,5 +1,7 @@
+
 <div class="content">
   <div class="content-header">
+    <!-- Alle variabler som er markert med {{ 'noe tekst' }} er variebler som hentes fra typescriptfilen -->
     <h1>{{bedriftnavn}}</h1>
     <app-bruker-rating></app-bruker-rating>
     <div class="headerInfo">
@@ -10,20 +12,13 @@
         <h3>{{mobilnummer}}</h3>
         <mat-icon>access_time</mat-icon>
         <h3>Åpningstider Hverdag: {{apningstidHverdag}}</h3>
+        <h3>Åpningstider Helg/Helligdager: {{apningsHelg}}</h3>
       </div>
     </div>
   </div>
-
   <div class="images">
     <img src="./assets/images/restaurant.jpg" alt="Testbilde">
-
   </div>
-  <!--<div class="res-name">
-    <h1 id="image-text">{{name}}</h1>
-  </div>-->
-
-
-
   <div class="content-main">
     <div class="content-text">
       <h3>
@@ -32,9 +27,10 @@
       <p>
         {{omOss}}
       </p>
-      <!--<button class="location">Hvor er du?</button>-->
     </div>
+    <!-- Dette er div'en Leaflet kartet legger seg i.
+         Viktig at denne div'en har en definert høyde,
+         ellers vil ikke kartet vises på nettsiden. -->
     <div id="map"></div>
-
   </div>
 </div>
