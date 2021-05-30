@@ -3,14 +3,12 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IRegistreringsform} from "../../../service/IRegistreringsform";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {KategoriService} from "../../../service/kategori.service";
-import { TranslateComponent } from 'src/app/components/translate/translate.component';
+import {TranslateComponent} from 'src/app/components/translate/translate.component';
 import {UploadImgService} from "../../../service/upload-img.service";
-import { AngularFireStorage } from '@angular/fire/storage';
-import { finalize } from "rxjs/operators";
-import * as Leaflet from "leaflet";
-import {LeafletMap} from "../../../components/restaurant-view/leaflet-map";
-import { AuthService } from 'src/app/service/auth.service';
-import { Router } from '@angular/router';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {finalize} from "rxjs/operators";
+import {AuthService} from 'src/app/service/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -21,7 +19,7 @@ import { Router } from '@angular/router';
 export class RegistreringComponent implements OnInit {
 
   isLinear = false;
-  firstFormGroup:  FormGroup;
+  firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
@@ -32,9 +30,9 @@ export class RegistreringComponent implements OnInit {
   kategoriTabell: Array<object>
   id: string = "";
   imgsrc: string
-  selectImage:  any=null;
-  submit :boolean;
-  
+  selectImage: any = null;
+  submit: boolean;
+
 
   @Input() maxNumberOfCharacters = 160;
   counter = true;
@@ -43,26 +41,25 @@ export class RegistreringComponent implements OnInit {
     textValue: ''
   };
 
- lng: number;
+  lng: number;
   lat: number;
   coords: any;
   formTemplate = new FormGroup({
-    category: new FormControl('',Validators.required),
+    category: new FormControl('', Validators.required),
     imageUrl: new FormControl('', Validators.required)
   })
 
 
-
   constructor(private katService: KategoriService,
-    private _formBuilder: FormBuilder,
-    public db: AngularFirestore,
-    public translate: TranslateComponent,
-    public  uploadService : UploadImgService,
-    private fireSt :AngularFireStorage,
-    private af : AuthService,
-    private router : Router
-
-    ) { }
+              private _formBuilder: FormBuilder,
+              public db: AngularFirestore,
+              public translate: TranslateComponent,
+              public uploadService: UploadImgService,
+              private fireSt: AngularFireStorage,
+              private af: AuthService,
+              private router: Router
+  ) {
+  }
 
 
   ngOnInit(): void {
@@ -90,29 +87,28 @@ export class RegistreringComponent implements OnInit {
       seventhCtrl: ['', Validators.required]
     });
 
-    navigator.geolocation.getCurrentPosition(location =>{
+    navigator.geolocation.getCurrentPosition(location => {
 
       this.lat = location.coords.latitude;
       this.lng = location.coords.longitude;
       const coords = location.coords;
       const latLong = [coords.latitude, coords.longitude];
-      console.log(this.lat , this.lng, coords);
+      console.log(this.lat, this.lng, coords);
 
     });
 
-    if(this.af.isLoggedIn !==true){
+    if (this.af.isLoggedIn !== true) {
       this.router.navigate(["/login"])
     }
 
 
-
-    this.katService.hentKategorier().subscribe(kategorier=>{
+    this.katService.hentKategorier().subscribe(kategorier => {
       this.kategoriTabell = kategorier;
     })
   }
 
   lagreBedrift(): void {
-    console.log("bedrift lagret")
+
 
     const bedriftInfo: IRegistreringsform = {
       lat: this.lat,
@@ -124,11 +120,10 @@ export class RegistreringComponent implements OnInit {
       åpningsTiderHelg: this.fifthFormGroup.value.fifthCtrl,
       omOss: this.seventhFormGroup.value.seventhCtrl,
       bedriftId: this.db.createId(),
-      
-      
+
+
     }
     this.id = this.selectedValue.valueOf();
-    console.log(bedriftInfo);
 
     this.db.collection('kategorier').doc(this.selectedValue.valueOf()).collection('yrke').doc(bedriftInfo.bedriftId).set(bedriftInfo)
       .then(r => console.log(r));
@@ -140,29 +135,28 @@ export class RegistreringComponent implements OnInit {
   }
 
   // denne metoden brukes til å vise brukeren hvilket bilde brukeren har valgt,
-  // etter at brukeren har valgt et bilde, 
-  //vises bildet i kortform for å vise brukeren hva som er valgt 
-  showPreview(event){
+  // etter at brukeren har valgt et bilde,
+  //vises bildet i kortform for å vise brukeren hva som er valgt
+  showPreview(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (e: any) => this.imgsrc = e.target.result;
       reader.readAsDataURL(event.target.files[0]);
       this.selectImage = event.target.files[0];
-    }
-    else {
+    } else {
       this.selectChange = null;
     }
 
   }
 
-  
-/*
-første submit er satt til sant, og sjekk deretter om alle kravene er gyldige. 
-Jeg spesifiserer hva filstien skal være med, er basert på det valgte bildet og kategorien, 
-hver kategori har sin unike identifikator, basert på disse identifikatorene er lagret der, 
-hvor vi har kategori resturant vil det  være bilder av kunn restauranter  og slik er det For hver kategori, 
- dette gjør lagringen ren og henter data fra den enkelt
-*/
+
+  /*
+  første submit er satt til sant, og sjekk deretter om alle kravene er gyldige.
+  Jeg spesifiserer hva filstien skal være med, er basert på det valgte bildet og kategorien,
+  hver kategori har sin unike identifikator, basert på disse identifikatorene er lagret der,
+  hvor vi har kategori resturant vil det  være bilder av kunn restauranter  og slik er det For hver kategori,
+   dette gjør lagringen ren og henter data fra den enkelt
+  */
   onSubmit(formValue) {
     this.submit = true;
     if (this.formTemplate.valid) {
@@ -174,7 +168,7 @@ hvor vi har kategori resturant vil det  være bilder av kunn restauranter  og sl
           fileRef.getDownloadURL().subscribe((url) => {
             formValue['imageUrl'] = url;
             this.uploadService.insertImageDetails(formValue);
-          
+
           })
         })
       ).subscribe();

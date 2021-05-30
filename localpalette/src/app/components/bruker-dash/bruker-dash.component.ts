@@ -1,13 +1,12 @@
-import { Component, OnInit ,NgZone } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
-import { Router } from "@angular/router";
-import { TranslateComponent } from '../translate/translate.component';
+import {Component, NgZone, OnInit} from '@angular/core';
+import {AuthService} from 'src/app/service/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-bruker-dash',
   templateUrl: './bruker-dash.component.html',
   styleUrls: ['./bruker-dash.component.scss']
- // styleUrls: ['../style/style.component.scss']
+  // styleUrls: ['../style/style.component.scss']
 
 })
 export class BrukerDashComponent implements OnInit {
@@ -16,7 +15,8 @@ export class BrukerDashComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     public ngZone: NgZone,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }

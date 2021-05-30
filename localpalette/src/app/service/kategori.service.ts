@@ -18,9 +18,9 @@ export class KategoriService {
   hentKategorier() {
     return this.afsDB.collection('kategorier').snapshotChanges().pipe(map(actions => {
       return actions.map(a => {
-        const data =a.payload.doc.data();
+        const data = a.payload.doc.data();
         const id = a.payload.doc.id;
-        return{data, id};
+        return {data, id};
       })
     }));
   }

@@ -1,11 +1,11 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
-import { pipe } from 'rxjs';
+import {TranslateService} from '@ngx-translate/core';
+
 /**
  * Abiel
  */
- 
+
 
 @Component({
   selector: 'app-translate',
@@ -20,14 +20,14 @@ export class TranslateComponent implements OnInit {
     public translate: TranslateService
   ) {
     translate.addLangs(['🇳🇴', '🇬🇧']);
-    
+
     translate.setDefaultLang('🇳🇴');
   }
 
   switchLang(lang: string) {
     this.translate.use(lang);
   }
-   
+
 
   ngOnInit(): void {
   }

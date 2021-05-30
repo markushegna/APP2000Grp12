@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {LeafletMap} from "./leaflet-map";
 import * as Leaflet from 'leaflet';
 import {Observable} from "rxjs";
@@ -13,11 +13,11 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./restaurant-view.component.scss']
 })
 
-  /*
-   * Author: Kim Andre & Markus
-   * Oppgava til denne klassa er å vise informasjonen til dei registrerte bedriftene
-   *
-   */
+/*
+ * Author: Kim Andre & Markus
+ * Oppgava til denne klassa er å vise informasjonen til dei registrerte bedriftene
+ *
+ */
 export class RestaurantViewComponent implements OnInit, AfterViewInit {
 
   /*
@@ -47,14 +47,15 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
   /*
    * Alle desse variablene inneholder informasjon om bedriften
    */
-  name:string;
+  name: string;
   adresse: string;
   mobilnummer: string;
-  apningstidHverdag:string
+  apningstidHverdag: string
   apningsHelg: string;
-  bedriftnavn : string;
-  katId:string;
+  bedriftnavn: string;
+  katId: string;
   omOss: string;
+
   /*
     * Denne konstruktøren tar i mot fire klasser og ved hjelp av Dependency Injection mønsteret
     * trenger eg ikke å sette av minne til å instansiere objektene.
@@ -83,23 +84,14 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
   * Den sjekker også for valueChanges som blir gjort til dokumentet for å
   * */
   ngOnInit(): void {
-
-
-
-  }
-
-
-
-
-  ngAfterViewInit(): void {
     const docID = this.activatedRoute.snapshot.paramMap.get('bedid');
-    console.log(docID)
-    this.katId=this.activatedRoute.snapshot.params["katid"]
-    this.bedriftnavn=this.activatedRoute.snapshot.params["bedid"]
+
+    this.katId = this.activatedRoute.snapshot.params["katid"]
+    this.bedriftnavn = this.activatedRoute.snapshot.params["bedid"]
     this.bedriftDoc = this.afs.collection('yrke').doc(docID);
     /*   this.bedrift = this.bedriftDoc.valueChanges();
        this.bruker = this.brukerDoc.valueChanges();*/
-    console.log(this.katId)
+
     /*
     * Dette vil hente ut informasjon om bedrifta med å søke etter kategoriId og docID som blir bedriftId'en.
     * */
@@ -120,7 +112,6 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
             const lat = this.lat;
             const lng = this.lng;
 
-            console.log(lat , lng);
 
             const mapView = {
               coords: new Leaflet.LatLng(lat, lng),
@@ -135,8 +126,15 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
 
 
   }
-  storBokstav(tekst: string){
-    if(typeof tekst !== 'string')
+
+
+  ngAfterViewInit(): void {
+
+
+  }
+
+  storBokstav(tekst: string) {
+    if (typeof tekst !== 'string')
       return '';
     return tekst.charAt(0).toUpperCase() + tekst.slice(1);
   }

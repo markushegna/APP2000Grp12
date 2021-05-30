@@ -7,7 +7,7 @@
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>{{'Bedriftens navn' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-            <input matInput placeholder="{{'Bedriftens navn' | translate}}" formControlName="firstCtrl" required>
+          <input matInput placeholder="{{'Bedriftens navn' | translate}}" formControlName="firstCtrl" required>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperNext>{{'Neste' | translate}}</button>
@@ -18,7 +18,7 @@
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>{{'Bedriftens adresse' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-            <input matInput placeholder="{{'Adresse' | translate}}" formControlName="secondCtrl" required>
+          <input matInput placeholder="{{'Adresse' | translate}}" formControlName="secondCtrl" required>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
@@ -30,7 +30,7 @@
         <form [formGroup]="thirdFormGroup">
           <ng-template matStepLabel>{{'Mobilnummer' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-            <input matInput placeholder="Mobil" formControlName="thirdCtrl" required>
+          <input matInput placeholder="Mobil" formControlName="thirdCtrl" required>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
@@ -42,8 +42,8 @@
         <form [formGroup]="fourthFormGroup">
           <ng-template matStepLabel>{{'Åpningstider hverdager' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-            <input matInput placeholder="{{'Åpningstid' | translate}}" formControlName="fourthCtrl" required>
-            <mat-hint>{{'Format: TT:MM - TT:MM' | translate}}</mat-hint>
+          <input matInput placeholder="{{'Åpningstid' | translate}}" formControlName="fourthCtrl" required>
+          <mat-hint>{{'Format: TT:MM - TT:MM' | translate}}</mat-hint>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
@@ -55,10 +55,10 @@
         <form [formGroup]="fifthFormGroup">
           <ng-template matStepLabel>{{'Åpningstider helger / helligdager' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-            <input matInput placeholder="Åpningstid" formControlName="fifthCtrl" required>
+          <input matInput placeholder="Åpningstid" formControlName="fifthCtrl" required>
 
 
-            <mat-hint>{{'Format: TT:MM - TT:MM' | translate}}</mat-hint>
+          <mat-hint>{{'Format: TT:MM - TT:MM' | translate}}</mat-hint>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
@@ -70,19 +70,19 @@
       <mat-step [stepControl]="sixthFormGroup">
         <div class="card-body">
           <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
-             <ng-template matStepLabel>{{'Bilder' | translate}}</ng-template>
+            <ng-template matStepLabel>{{'Bilder' | translate}}</ng-template>
             <div class="text-center">
               <img [src]="imgsrc" width="100px" height="100px" (click)="fileUploader.click()">
             </div>
             <div class="form-group">
               <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
-                (change)="showPreview($event)">
+                     (change)="showPreview($event)">
               <div class="text-danger" *ngIf="submit && formControls.imageUrl.errors?.required">
               </div>
             </div>
-             <div class="form-group" >
-              <select formControlName="category" class="form-control" >
-                <option  *ngFor="let kat of kategoriTabell"  value={{kat.id}} > {{kat.data.kategori}}</option>
+            <div class="form-group">
+              <select formControlName="category" class="form-control">
+                <option *ngFor="let kat of kategoriTabell" value={{kat.id}}> {{kat.data.kategori}}</option>
               </select>
             </div>
             <div class="form-row">
@@ -93,11 +93,13 @@
           </form>
         </div>
       </mat-step>
-      <mat-step   [stepControl]="seventhFormGroup">
+      <mat-step [stepControl]="seventhFormGroup">
         <form [formGroup]="seventhFormGroup">
           <ng-template matStepLabel>{{'Om oss' | translate}}</ng-template>
           <!-- <mat-form-field> -->
-          <textarea  [(ngModel)]="interaction.textValue" (ngModelChange)="onModelChange($event)" [attr.maxlength]="counter ? maxNumberOfCharacters : ''" matInput placeholder="Om oss" formControlName="seventhCtrl" required ></textarea>
+          <textarea [(ngModel)]="interaction.textValue" (ngModelChange)="onModelChange($event)"
+                    [attr.maxlength]="counter ? maxNumberOfCharacters : ''" matInput placeholder="Om oss"
+                    formControlName="seventhCtrl" required></textarea>
           <div class="">{{numberOfCharacters2}} / {{maxNumberOfCharacters}}</div>
           <!-- </mat-form-field> -->
           <div>
@@ -112,11 +114,11 @@
                Bedriften blir da lagt inn i den kategorien brukeren velger -->
           <ng-template matStepLabel>{{'Kategori' | translate}}</ng-template>
           <!-- <mat-form-field  formControlName="sixthCtrl" required> -->
-            <mat-select [(value)]="selectedValue" placeholder = "Velg kategori">
-              <div class="" *ngFor="let kat of kategoriTabell" >
-              <mat-option value={{kat.id}} #katagoriid >{{kat.data.kategori}} </mat-option>
-              </div>
-            </mat-select>
+          <mat-select [(value)]="selectedValue" placeholder="Velg kategori">
+            <div class="" *ngFor="let kat of kategoriTabell">
+              <mat-option value={{kat.id}} #katagoriid>{{kat.data.kategori}} </mat-option>
+            </div>
+          </mat-select>
           <!-- </mat-form-field> -->
           <div>
             <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
@@ -135,35 +137,8 @@
     </mat-vertical-stepper>
 
 
-
     <div class="picture-holder">
       <img src="./assets/images/restaurant.jpg" alt="Testbilde">
     </div>
   </div>
 </div>
-
-
-
-
-<!--<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
-  <div class="form-group">
-    <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control" placeholder="Full name" required>
-    <div *ngIf="fullName.invalid &#038;&#038; fullName.touched" class="validation-error">This field is required.</div>
-  </div>
-  <div class="form-group">
-    <input name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="address">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control" placeholder="kortbeskrivelse">
-    </div>
-    <div class="form-group  col-md-6">s
-      <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile" class="form-control" placeholder="åpnings tider ">
-    </div>
-  </div>
-  <div class="form-group">
-    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">SUBMIT</button>
-  </div>
-
-</form>-->

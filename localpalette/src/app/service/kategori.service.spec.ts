@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { KategoriService } from './kategori.service';
+import {KategoriService} from './kategori.service';
 
 describe('KategoriService', () => {
   let service: KategoriService;

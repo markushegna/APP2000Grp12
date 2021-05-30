@@ -14,7 +14,8 @@
       </div>
 
       <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="afAuth.SignUp(userEmail.value, userPwd.value)">
+        <input type="button" class="btn btnPrimary" value="Sign Up"
+               (click)="afAuth.SignUp(userEmail.value, userPwd.value)">
       </div>
 
       <div class="formGroup">
@@ -25,14 +26,15 @@
       <div class="formGroup">
         <button type="button" class="btn googleBtn" (click)="afAuth.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
-         {{" Fortsett med Google " | translate}}
+          {{" Fortsett med Google " | translate}}
         </button>
       </div>
-      
+
     </div>
 
     <div class="redirectToLogin">
-      <span>{{"Har du allerede en konto ? " | translate}} <span class="redirect" routerLink="/login">Logg Inn</span></span>
+      <span>{{"Har du allerede en konto ? " | translate}} <span class="redirect"
+                                                                routerLink="/login">Logg Inn</span></span>
     </div>
   </div>
 

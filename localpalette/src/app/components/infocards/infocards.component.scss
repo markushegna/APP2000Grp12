@@ -3,20 +3,21 @@
   flex-direction: row;
   justify-content: space-around;
   padding-bottom: 3%;
-  margin-top: 1%;
+  min-height: 100vh;
   flex-wrap: wrap;
-  background-image: linear-gradient(to left, #BA7453, #D1A984);
+  background-image: linear-gradient(to left, #d2a056, #e2cc83);
 
   .cards {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 30px 10px 5px 10px;
-    min-width: 30%;
+
+
     padding: 1%;
+    height: 42vh;
 
     .restaurants {
-      margin-right: 1%;
+
 
     }
   }
