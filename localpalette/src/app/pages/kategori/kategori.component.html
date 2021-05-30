@@ -14,7 +14,7 @@
     <div class="container" *ngFor="let kategori of kategoriTab">
 
       <div [routerLink]="['/kategori', kategori.id]" class="kategori-container">
-        <h3 class="kategori-tittel">{{kategori.data.kategori}}</h3>
+        <h3 class="kategori-tittel">{{storBokstav(kategori.data.kategori)}}</h3>
       </div>
 
 

@@ -135,5 +135,9 @@ export class RestaurantViewComponent implements OnInit, AfterViewInit {
 
 
   }
-
+  storBokstav(tekst: string){
+    if(typeof tekst !== 'string')
+      return '';
+    return tekst.charAt(0).toUpperCase() + tekst.slice(1);
+  }
 }

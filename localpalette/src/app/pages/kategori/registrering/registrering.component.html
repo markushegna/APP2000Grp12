@@ -93,8 +93,18 @@
           </form>
         </div>
       </mat-step>
-
-      <div class="">
+      <mat-step [stepControl]="seventhFormGroup">
+        <form [formGroup]="seventhFormGroup">
+          <ng-template matStepLabel>{{'Om oss' | translate}}</ng-template>
+          <!-- <mat-form-field> -->
+          <input matInput placeholder="Om oss" formControlName="seventhCtrl" required>
+          <!-- </mat-form-field> -->
+          <div>
+            <button mat-button matStepperPrevious>{{'Tilbake' | translate}}</button>
+            <button mat-button matStepperNext>{{'Neste' | translate}}</button>
+          </div>
+        </form>
+      </mat-step>
       <mat-step>
         <form>
           <!-- Henter inn kategoriene som vises i en nedtrekksliste.

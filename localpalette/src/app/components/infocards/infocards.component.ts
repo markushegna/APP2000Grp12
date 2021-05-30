@@ -53,6 +53,7 @@ export class InfocardsComponent implements OnInit {
               public stjerneService: StjerneService,
               private activatedRoute: ActivatedRoute) {
   }
+
   /*
      * Med å bruke Dependency Injection mønsteret kan eg lage et objekt uten å tilegne minne til objektet.
      * Då kan eg hente ut funksjonen "visAlleBedrifter()" som tar inn katId'en som parameter.
@@ -69,5 +70,10 @@ export class InfocardsComponent implements OnInit {
       this.bedrifter = value;
     })
 
+  }
+  storBokstav(tekst: string){
+    if(typeof tekst !== 'string')
+      return '';
+    return tekst.charAt(0).toUpperCase() + tekst.slice(1);
   }
 }

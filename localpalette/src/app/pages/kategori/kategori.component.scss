@@ -68,12 +68,14 @@
         border-radius: 10px;
         background-size: cover;
         background-image: linear-gradient(rgba(255, 255, 255, 0),
-          rgba(0, 0, 0, 0.5)),
-        url("https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQX8uzcyIBC6TFOmtHLtdOR1kO0jqyEdV5wNN9LpDJKhAY6T8qWPpA7qS8yTnFCf0GQG6qlJ3lC66DpF1FgOAc");
+          rgba(0, 0, 0, 0.7)),
+        url("https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
         .kategori-tittel {
           padding: 25px 0 0 0;
           font-size: 35px;
-          color:black;
+          font-weight: bold;
+          letter-spacing: .2rem;
+          color: rgb(226, 226, 226);
         }
       }
     }
