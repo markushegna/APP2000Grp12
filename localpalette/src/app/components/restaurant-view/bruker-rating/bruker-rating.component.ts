@@ -72,18 +72,18 @@ export class BrukerRatingComponent implements OnInit {
   stjerneHandler(value) {
     this.stjerneService.setStjerne(
       //BrukerRatingComponent.getUid()
-      'kimaa', this.bId, value).then(r => console.log(r))
+      BrukerRatingComponent.getUid(), this.bId, value).then(r => console.log(r))
   }
 
   /*
    * Denne metoden henter ut brukernavnet som er lagret i Localstorage
    */
-  /* private static getUid() {
+   private static getUid() {
      const user = JSON.parse(localStorage.getItem('user'));
      if(user !== null && user.emailVerified !== false) {
        return user.uid;
      }
-   }*/
+   }
 
 
 }
