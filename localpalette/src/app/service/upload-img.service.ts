@@ -6,10 +6,13 @@ import { AngularFireUploadTask } from '@angular/fire/storage';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Abiel
+ */
 export class UploadImgService {
-  // private  basePath : '/images'
+  
   file : File;
-  // ur = '';
+  
   imageDetailList: AngularFireList<any>  ;
  constructor(private firebase: AngularFireDatabase) { }
 

@@ -1,4 +1,5 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<!-- Abiel -->
 <div class="container bootdey flex-grow-1 container-p-y">
 
 
@@ -10,23 +11,10 @@
                 <h4 class="font-weight-bold mb-0">{{(user.displayName) ? user.displayName : 'User'}} 
                   <span class="text-muted font-weight-normal">{{user.email}}</span></h4>
                 <div class="text-muted mb-2"> id: {{user.uid}}</div>
-
-              
-              
-                <a href="javascript:void(0)" class="btn btn-primary btn-sm"> Name</a>&nbsp;
-                <a href="javascript:void(0)" class="btn btn-default btn-sm"> Profile </a>&nbsp;
-
+                
                 <a class="btn btn-default btn-sm" (click)="authService.SignOut()">
                   <i class="fas fa-sign-out-alt">log ut</i>
                 </a>
-                <a class="btn btn-default btn-sm">
-                  <i class="fas fa-heart"> favoriter </i> 
-                </a>
-                  
-              
-                
-                
-                <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
               </div>
             </div>
           

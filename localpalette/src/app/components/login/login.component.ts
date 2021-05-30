@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {AuthService} from "../../service/auth.service"
 import "../style/style.component.scss";
 
@@ -10,10 +11,15 @@ import "../style/style.component.scss";
 export class LoginComponent implements OnInit {
 
   constructor(
-    public auth: AuthService
+    public auth: AuthService,
+    public router :  Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
+    if(this.auth.isLoggedIn){
+      this.router.navigate(["/brukerDash"])
+    }
   }
 
 }

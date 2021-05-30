@@ -1,3 +1,4 @@
+<!-- Abiel -->
 <div class="displayTable">
   <div class="displayTableCell">
 
@@ -5,7 +6,7 @@
       <h3>Registrer deg </h3>
 
       <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+        <input type="email" class="formControl" placeholder="Email Addresse" #userEmail required>
       </div>
 
       <div class="formGroup">
@@ -17,21 +18,21 @@
       </div>
 
       <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
+        <span class="or"><span class="orInner">{{"Eller" | translate}}</span></span>
       </div>
 
-      <!-- Continue with Google -->
+      <!-- Google -->
       <div class="formGroup">
         <button type="button" class="btn googleBtn" (click)="afAuth.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
-          Fortsett med Google 
+         {{" Fortsett med Google " | translate}}
         </button>
       </div>
       
     </div>
 
     <div class="redirectToLogin">
-      <span>Har du allerede en konto ? <span class="redirect" routerLink="/login">Logg Inn</span></span>
+      <span>{{"Har du allerede en konto ? " | translate}} <span class="redirect" routerLink="/login">Logg Inn</span></span>
     </div>
   </div>
 
